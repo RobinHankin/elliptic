@@ -51,7 +51,7 @@ eee.cardano(g)
     use \code{parameters()} to determine argument \code{g}, because
     doing so will result in a recursive loop.}
 
-    Just to be specfic: \code{e1e2e3(g=parameters(...))} will fail.  It
+    Just to be specific: \code{e1e2e3(g=parameters(...))} will fail.  It
     would be pointless anyway, because \code{parameters()} returns
     (inter alia) \eqn{e_1, e_2, e_3}{e1, e2, e3} anyway.
 
