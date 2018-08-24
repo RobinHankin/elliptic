@@ -3,14 +3,17 @@
 \alias{elliptic}
 \docType{package}
 \title{
-Elliptic and modular functions
+\packageTitle{elliptic}
 }
 \description{
- A suite of elliptic and related functions including Weierstrass and
- Jacobi forms.  Also includes various tools for manipulating and
- visualizing complex functions
+\packageDescription{elliptic}
 }
 \details{
+
+The DESCRIPTION file:
+\packageDESCRIPTION{elliptic}
+\packageIndices{elliptic}
+
 The primary function in package \pkg{elliptic} is \code{P()}: this
 calculates the Weierstrass \eqn{\wp}{P} function, and may take named
 arguments that specify either the invariants \code{g} or half
@@ -43,7 +46,9 @@ Complex functions may be visualized using \code{view()}; this is
 customizable but has an extensive set of built-in colourmaps.
 }
 \author{
-  Robin K. S. Hankin
+\packageAuthor{elliptic}
+
+Maintainer: \packageMaintainer{elliptic}
 }
 \references{
   \itemize{
