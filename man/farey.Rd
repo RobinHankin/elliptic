@@ -2,7 +2,7 @@
 \alias{farey}
 \title{Farey sequences}
 \description{
-  Returns the Farey sequence of order \eqn{n}{n}
+  Returns the Farey sequence of order \eqn{n}
 }
 \usage{
 farey(n, print=FALSE, give.series = FALSE)
