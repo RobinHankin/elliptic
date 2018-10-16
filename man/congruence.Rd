@@ -2,8 +2,8 @@
 \alias{congruence}
 \title{Solves mx+by=1 for x and y}
 \description{
-  Solves the Diophantine equation \eqn{mx+by=1}{mx+by=1} for \eqn{x}{x}
-  and \eqn{y}{y}.  The function is named for equation 57 in Hardy and Wright.
+  Solves the Diophantine equation \eqn{mx+by=1} for \eqn{x}
+  and \eqn{y}.  The function is named for equation 57 in Hardy and Wright.
 }
 \usage{
 congruence(a, l = 1)
