@@ -16,7 +16,7 @@ coqueraux(z, g, N = 5, use.fpp = FALSE, give = FALSE)
   \item{N}{Number of iterations to use}
   \item{use.fpp}{Boolean, with default \code{FALSE} meaning to \emph{not}
     reduce \code{z} to the fpp.  Setting to \code{TRUE} reduces
-    \code{z} to the fpp via\code{parameters()}: this is more
+    \code{z} to the fpp via \code{parameters()}: this is more
     accurate (see example) but slower}
   \item{give}{Boolean, with \code{TRUE} meaning to return an estimate of
     the error, and \code{FALSE} meaning to return just the value}
