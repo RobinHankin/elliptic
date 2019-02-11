@@ -6,7 +6,7 @@
 \alias{e18.3.8}
 \title{Calculate e1, e2, e3 from the invariants}
 \description{
-  Calculates e1, e2, e3 from the invariants using
+  Calculates \eqn{e_1,e_2,e_3}{e1,e2,e3} from the invariants using
   either \code{polyroot} or Cardano's method.
 }
 \usage{
@@ -53,7 +53,7 @@ eee.cardano(g)
 
     Just to be specific: \code{e1e2e3(g=parameters(...))} will fail.  It
     would be pointless anyway, because \code{parameters()} returns
-    (inter alia) \eqn{e_1, e_2, e_3}{e1, e2, e3} anyway.
+    (inter alia) \eqn{e_1, e_2, e_3}{e1, e2, e3}.
 
     There is considerable confusion about the order of \eqn{e_1}{e1},
     \eqn{e_2}{e2} and \eqn{e_3}{e3}, essentially due to Abramowitz and
