@@ -6,7 +6,7 @@
 \alias{e16.28.5}
 \title{Numerical verification of equations 16.28.1 to 16.28.5}
 \description{
-Verifies formulae 16.28.1 to 16.28.5 on p576
+Numerical verification of formulae 16.28.1 to 16.28.5 on p576
 }
 \usage{
 e16.28.1(z, m, ...)
