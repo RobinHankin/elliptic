@@ -88,7 +88,7 @@ c(f(z),f(z + 10+2i), f(z + 2+14i))  # should be equal
 
 The elliptic functions can  be visualised using ```view()```:
 
-```{r}
+```{r view_wp}
 x <- seq(from=-4, to=4, len=200)
 y <- x
 z <- outer(x,1i*x, "+")
@@ -112,8 +112,8 @@ Jacobi's elliptic functions are implemented in the package with their
 standard names ```sn()```, ```cn()```, ```dn()``` etc.  For example:
 
 
-```{r}
-view(x,y,ns(z,m=6),real=FALSE,drawlabel=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)", main="The Jacobi sn() function")
+```{r view_sn}
+view(x,y,sn(z,m=6),real=FALSE,drawlabel=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)", main="The Jacobi sn() function")
 axis(1,pos = -4,at=c(-4,-2,0,2,4))
 axis(2,pos = -4,at=c(-4,-2,0,2,4))
 lines(x=c(-4,4),y=c(4,4))
@@ -122,7 +122,7 @@ lines(y=c(-4,4),x=c(4,4))
 
 The Jacobi forms are useful in physics and we can use them to visualise potential flow in a rectangle:
 
-```{r}
+```{r view_rectangle}
 n <- 300
 K <- K.fun(1/2)  # aspect ratio
 f <- function(z){1i*log((z-1.7+3i)*(z-1.7-3i)/(z+1-0.3i)/(z+1+0.3i))} # position of source and sink

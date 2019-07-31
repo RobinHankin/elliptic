@@ -93,7 +93,7 @@ lines(x=c(-4,4),y=c(4,4))
 lines(y=c(-4,4),x=c(4,4))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/view_wp-1.png)<!-- -->
 
 Related functions include
 ![\\sigma(\\cdot)](https://latex.codecogs.com/png.latex?%5Csigma%28%5Ccdot%29
@@ -108,14 +108,14 @@ standard names `sn()`, `cn()`, `dn()` etc. For
 example:
 
 ``` r
-view(x,y,ns(z,m=6),real=FALSE,drawlabel=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)", main="The Jacobi sn() function")
+view(x,y,sn(z,m=6),real=FALSE,drawlabel=FALSE,axes=FALSE,xlab="Re(z)",ylab="Im(z)", main="The Jacobi sn() function")
 axis(1,pos = -4,at=c(-4,-2,0,2,4))
 axis(2,pos = -4,at=c(-4,-2,0,2,4))
 lines(x=c(-4,4),y=c(4,4))
 lines(y=c(-4,4),x=c(4,4))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/view_ns-1.png)<!-- -->
 
 The Jacobi forms are useful in physics and we can use them to visualise
 potential flow in a rectangle:
@@ -133,7 +133,7 @@ view(x, y, f(sn(z,m=1/2)), nlevels=44, real.contour=TRUE, drawlabels=FALSE,
 rect(-K,0,K,K,lwd=3)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/view_rectangle-1.png)<!-- -->
 
 ## References
 
