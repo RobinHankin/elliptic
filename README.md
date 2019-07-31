@@ -115,7 +115,7 @@ lines(x=c(-4,4),y=c(4,4))
 lines(y=c(-4,4),x=c(4,4))
 ```
 
-![](README_files/figure-gfm/view_ns-1.png)<!-- -->
+![](README_files/figure-gfm/view_sn-1.png)<!-- -->
 
 The Jacobi forms are useful in physics and we can use them to visualise
 potential flow in a rectangle:
