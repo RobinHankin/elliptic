@@ -54,8 +54,8 @@ parameters(Omega=NULL, g=NULL, description=NULL)
     \item{g}{Complex vector of length 2 holding the invariants}
     \item{e}{Complex vector of length 3.  Here \eqn{e_1}{e1}, \eqn{e_2}{e2},
       and \eqn{e_3}{e3} are defined by
-      \deqn{e_1=\wp(\omega1/2)m\qquad e_2=\wp(\omega2/2),\qquad
-	e_3=\wp(\omega3/2)}{e1=P(omega1/2), e2=P(omega2/2),
+      \deqn{e_1=\wp(\omega_1/2)m\qquad e_2=\wp(\omega_2/2),\qquad
+	e_3=\wp(\omega_3/2)}{e1=P(omega1/2), e2=P(omega2/2),
 	e3=P(omega3/2),}
     where \eqn{\omega_3}{omega3} is defined by
     \eqn{\omega_1+\omega_2+\omega_3=0}{\omega1+omega2+omega3=0}.
