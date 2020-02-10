@@ -11,6 +11,8 @@ before_install:
     - sudo apt-get install texlive-fonts-recommended
     - sudo apt-get install texlive texlive-latex3
     - sudo apt install texlive-latex-extra
+    - tlmgr install bbm
+    - tlmgr install bbm-macros
     - sudo apt-get install texlive-fonts-recommended texlive-fonts-extra texlive-latex-recommended
 language: R
 cache: packages
