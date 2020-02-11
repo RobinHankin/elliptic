@@ -2,7 +2,6 @@
 
 before_install:
     - tlmgr install wasysym
-    - tlmgr install ec
     - tlmgr install cm-super
     - tlmgr install yfonts
     - tlmgr install collection-latexrecommended
