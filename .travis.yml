@@ -2,7 +2,6 @@
 
 before_install:
     - tlmgr install collection-fontsrecommended
-    - sudo apt-get install texlive-fonts-recommended
     - sudo apt-get install texlive texlive-latex3
     - sudo apt install texlive-latex-extra
     - tlmgr install bbm
