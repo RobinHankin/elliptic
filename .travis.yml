@@ -2,7 +2,6 @@
 
 before_install:
     - tlmgr install bbm
-    - tlmgr install bbm-macros
     - tlmgr install collection-fontsrecommended
     - sudo apt-get install texlive-fonts-recommended texlive-fonts-extra texlive-latex-recommended
 language: R
