@@ -138,7 +138,7 @@ rect(-K,0,K,K,lwd=3)
 
 ## References
 
-* M Abramowitz and IA Stegun (1965).  _Hankdbook of Mathematical Functions_.  New York: Dover
+* M Abramowitz and IA Stegun (1965).  _Handbook of Mathematical Functions_.  New York: Dover
 * RKS Hankin (2006). "Introducing elliptic, an R package for elliptic and modular functions".  _Journal of Statistical Software_, 15:7
 * K Chandrasekharan (1985). _Elliptic functions_.  Springer-Verlag
 
