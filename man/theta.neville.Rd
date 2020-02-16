@@ -38,7 +38,29 @@ theta.n(u, m, method = "16.36.7", ...)
     numbering scheme}
   \item{...}{Extra arguments passed to the method function, such as
     \code{maxiter}}
+}
+\details{
+  I reproduce the relevant sections of AMS-55 here, for convenience:
+
+  \tabular{ll}{\cr
+16.36.6a\tab\eqn{\displaystyle\vartheta_s(u) = \frac{2K\vartheta_1(v)}{\vartheta'_{1_{\vphantom{j_j}}}(0)}}{see PDF}\cr
+16.36.6b\tab\eqn{\displaystyle\vartheta_c(u) = \frac{\vartheta_2(v)  }{\vartheta _{2_{\vphantom{j_j}}}(0)}}{see PDF}\cr
+16.36.7a\tab\eqn{\displaystyle\vartheta_d(u) = \frac{\vartheta_3(v)  }{\vartheta _{3_{\vphantom{j_j}}}(0)}}{see PDF}\cr
+16.36.7b\tab\eqn{\displaystyle\vartheta_n(u) = \frac{\vartheta_4(v)  }{\vartheta _{4_{\vphantom{j_j}}}(0)}}{see PDF}\cr
+16.37.1\tab\eqn{\displaystyle\vartheta_s(u)=\left(\frac{16q}{mm_1}\right)^{1/6}\sin
+  v\prod_{n=1}^\infty\left(1-2q^{2n}\cos 2v+q^{4n}\right)}{see PDF}\cr
+16.37.2\tab\eqn{\displaystyle\vartheta_c(u)=\left(\frac{16qm_1^{1/2}}{m}\right)^{1/6}_{\vphantom{j_j}}\cos
+  v\prod_{n=1}^\infty\left(1+2q^{2n}\cos 2v+q^{4n}\right)}{see PDF}\cr
+16.37.3\tab\eqn{\displaystyle\vartheta_d(u)=\left(\frac{mm_1}{16q}\right)^{1/12}
+  \prod_{n=1}^\infty\left(1+2q^{2n-1}\cos 2v+q^{4n-2}\right)}{see PDF}\cr
+16.37.4\tab\eqn{\displaystyle\vartheta_n(u)=\left(\frac{m}{16qm_1^2}\right)^{1/12}
+  \prod_{n=1}^\infty\left(1-2q^{2n-1}\cos 2v+q^{4n-2}\right)}{see PDF}
   }
+
+
+  (in the above we have \eqn{v=\pi u/(2K)}{v=pi*u/(2K)} and \eqn{q=q(m)}).
+
+}
 \references{
   M. Abramowitz and I. A. Stegun 1965.  \emph{Handbook of mathematical
   functions}. New York: Dover
