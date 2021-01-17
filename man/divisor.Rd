@@ -23,7 +23,7 @@ liouville(n)
 }
 \details{
   Functions \code{primes()} and \code{factorize()} cut-and-pasted from
-  Bill Venables's conf.design package, version 0.0-3.  Function
+  Bill Venables's \pkg{con.design} package, version 0.0-3.  Function
   \code{primes(n)} returns a vector of all primes not exceeding
   \code{n}; function \code{factorize(n)} returns an integer vector of
   nondecreasing primes whose product is \code{n}.
