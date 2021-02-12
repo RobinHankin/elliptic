@@ -12,11 +12,11 @@ output:
 # elliptic: Weierstrass and Jacobi elliptic functions
 
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/elliptic?color=green)](https://cran.r-project.org/package=elliptic)
-![](http://cranlogs.r-pkg.org/badges/grand-total/elliptic?color=green)
-![](http://cranlogs.r-pkg.org/badges/elliptic?color=green)
-![](http://cranlogs.r-pkg.org/badges/last-week/elliptic?color=green)
-[![Rdoc](http://www.rdocumentation.org/badges/version/elliptic)](http://www.rdocumentation.org/packages/elliptic)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/elliptic?color=green)](https://cran.r-project.org/package=elliptic)
+![](https://cranlogs.r-pkg.org/badges/grand-total/elliptic?color=green)
+![](https://cranlogs.r-pkg.org/badges/elliptic?color=green)
+![](https://cranlogs.r-pkg.org/badges/last-week/elliptic?color=green)
+[![Rdoc](https://www.rdocumentation.org/badges/version/elliptic)](http://www.rdocumentation.org/packages/elliptic)
 
 
 ```{r echo=FALSE, results="hide", message=FALSE}
