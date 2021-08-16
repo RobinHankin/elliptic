@@ -9,6 +9,8 @@ output:
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
+<img src="man/figures/elliptic.png" width = "150" align="right" />
+
 # elliptic: Weierstrass and Jacobi elliptic functions
 
 

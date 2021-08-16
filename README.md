@@ -5,6 +5,8 @@ The elliptic package: Weierstrass and Jacobi elliptic functions in R
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="man/figures/elliptic.png" width = "150" align="right" />
+
 # elliptic: Weierstrass and Jacobi elliptic functions
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/elliptic?color=green)](https://cran.r-project.org/package=elliptic)
