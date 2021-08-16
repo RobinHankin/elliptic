@@ -50,20 +50,20 @@ Terminology follows that of Abramowitz and Stegun wherever possible.
 # Installation
 
 To install the most recent stable version on CRAN, use
-```install.packages()``` at the R prompt:
+`install.packages()` at the R prompt:
 
 ```
 R> install.packages("elliptic")
 ```
 
 
-To install the current development version use ```devtools```:
+To install the current development version use `devtools`:
 
 ```
 R> devtools::install_github("RobinHankin/elliptic")
 ```
 
-And then to load the package use ```library()```:
+And then to load the package use `library()`:
 
 
 ```{r,message=FALSE}
@@ -71,12 +71,12 @@ library("elliptic")
 ```
 
 The package comes with an extensive and detailed vignette; type 
-```vignette("ellipticpaper")``` at the R commandline.
+`vignette("ellipticpaper")` at the R commandline.
 
 # The package in use
 
 The Weierstrass elliptic function is evaluated numerically by
-```P()```, which takes the half periods $\omega_1,\omega_2$.  Thus
+`P()`, which takes the half periods $\omega_1,\omega_2$.  Thus
 
 
 ```{r}
@@ -86,7 +86,7 @@ f <- function(z){P(z,Omega=c(omega1,omega2))}
 c(f(z),f(z + 10+2i), f(z + 2+14i))  # should be equal
 ```
 
-The elliptic functions can  be visualised using ```view()```:
+The elliptic functions can  be visualised using `view()`:
 
 ```{r view_wp}
 x <- seq(from=-4, to=4, len=200)
@@ -102,14 +102,14 @@ lines(y=c(-4,4),x=c(4,4))
 ```
 
 
-Related functions include $\sigma(\cdot)$ (```sigma()``` and the
-$\zeta(\cdot)$ (```zeta()```).
+Related functions include $\sigma(\cdot)$ (`sigma()` and the
+$\zeta(\cdot)$ (`zeta()`).
 
 
 ## Jacobi forms
 
 Jacobi's elliptic functions are implemented in the package with their
-standard names ```sn()```, ```cn()```, ```dn()``` etc.  For example:
+standard names `sn()`, `cn()`, `dn()` etc.  For example:
 
 
 ```{r view_sn}
