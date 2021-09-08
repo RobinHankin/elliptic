@@ -1,9 +1,11 @@
+# reproduces a slight modification of figure 18.5 (top), p643.
+
 library("elliptic")
 library("hexSticker")
 p <- parameters(Omega=c(1+0.1i,1+1i))
 n <- 90
 f <- function(r,i1,i2=1)seq(from=r+1i*i1, to=r+1i*i2,len=n)
-g <- function(i,r1,r2=1)seq(from=1i*i+r1,to=1i*i+2,len=n)
+g <- function(i,r1,r2=1)seq(from=1i*i+r1, to=1i*i+2,len=n)
 
 solid.lines <-
   c(
