@@ -9,7 +9,7 @@ The elliptic package: Weierstrass and Jacobi elliptic functions in R
 
 # elliptic: Weierstrass and Jacobi elliptic functions
 
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/elliptic?color=green)](https://cran.r-project.org/package=elliptic)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/elliptic?color=green)](https://cran.r-project.org/package=elliptic)
 ![](https://cranlogs.r-pkg.org/badges/grand-total/elliptic?color=green)
 ![](https://cranlogs.r-pkg.org/badges/elliptic?color=green)
 ![](https://cranlogs.r-pkg.org/badges/last-week/elliptic?color=green)
@@ -23,13 +23,13 @@ The elliptic package: Weierstrass and Jacobi elliptic functions in R
 
 An elliptic function is a meromorphic complex function that is periodic
 in two directions. That is, there exist two nonzero complex numbers
-![\\omega\_1,\\omega\_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2")
+![\\omega_1,\\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2")
 with
-![\\omega\_1/\\omega\_2\\in\\mathbb{C}\\backslash\\mathbb{R}](https://latex.codecogs.com/png.latex?%5Comega_1%2F%5Comega_2%5Cin%5Cmathbb%7BC%7D%5Cbackslash%5Cmathbb%7BR%7D "\omega_1/\omega_2\in\mathbb{C}\backslash\mathbb{R}")
+![\\omega_1/\\omega_2\\in\\mathbb{C}\\backslash\\mathbb{R}](https://latex.codecogs.com/png.latex?%5Comega_1%2F%5Comega_2%5Cin%5Cmathbb%7BC%7D%5Cbackslash%5Cmathbb%7BR%7D "\omega_1/\omega_2\in\mathbb{C}\backslash\mathbb{R}")
 such that
 
 ![
-f(z) = f(z+2\\omega\_1)=f(z+2\\omega\_2)
+f(z) = f(z+2\\omega_1)=f(z+2\\omega_2)
 ](https://latex.codecogs.com/png.latex?%0Af%28z%29%20%3D%20f%28z%2B2%5Comega_1%29%3Df%28z%2B2%5Comega_2%29%0A "
 f(z) = f(z+2\omega_1)=f(z+2\omega_2)
 ")
@@ -66,7 +66,7 @@ The package comes with an extensive and detailed vignette; type
 
 The Weierstrass elliptic function is evaluated numerically by `P()`,
 which takes the half periods
-![\\omega\_1,\\omega\_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2").
+![\\omega_1,\\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2").
 Thus
 
 ``` r
