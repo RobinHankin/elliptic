@@ -1,6 +1,6 @@
 \name{p1.tau}
 \alias{p1.tau}
-\title{Does the right thing when calling g2.fun() and g3.fun()}
+\title{Does the Right Thing (tm) when calling g2.fun() and g3.fun()}
 \description{
   Takes vectors and
   interprets them appropriately for input to \code{g2.fun()} and
