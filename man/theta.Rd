@@ -42,7 +42,7 @@ H1(u, m, ...)
 \arguments{
   \item{z,u}{Complex argument of function}
   \item{ignore}{Dummy variable whose intention is to force the user to
-    name the second argument either \code{m} or \code{q}.}
+    name the second argument either \code{m} or \code{q}}
   \item{m}{Does not seem to have a name.   The variable is introduced in
     section 16.1, p569}
   \item{q}{The nome \eqn{q}, defined in section 16.27, p576}
@@ -56,8 +56,6 @@ H1(u, m, ...)
     \code{theta1()} et seq; notably, \code{maxiter}}
 }
 \details{
-  Should have a \code{tol} argument.
-
   Functions \code{theta.00()} eq seq are just wrappers for 
   \code{theta1()} et seq, following Whittaker and Watson's terminology
   on p487; the notation does not appear in Abramowitz and Stegun.
@@ -67,7 +65,6 @@ H1(u, m, ...)
     \item \code{theta.00() = theta3()}
     \item \code{theta.01() = theta4()}
     }
-  
 }
 \value{
   Returns a complex-valued object with the same attributes as either
