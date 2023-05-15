@@ -3,7 +3,7 @@
 \concept{Thaller}
 \title{Visualization of complex functions}
 \description{
-Visualization of complex functions using colourmaps and contours
+Visualization of complex functions using colour maps and contours
 }
 \usage{
 view(x, y, z, scheme = 0, real.contour = TRUE, imag.contour = real.contour,
