@@ -20,9 +20,7 @@
 \concept{Jacobi's elliptic functions}
 \concept{Jacobian elliptic functions}
 \title{Jacobi form of the elliptic functions}
-\description{
-  Jacobian elliptic functions
-}
+\description{Jacobian elliptic functions}
 \usage{
 ss(u,m, ...)
 sc(u,m, ...)

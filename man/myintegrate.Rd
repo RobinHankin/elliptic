@@ -16,7 +16,8 @@
   (\code{myintegrate()}), along arbitrary paths
   (\code{integrate.contour()}), and following arbitrary straight line
   segments (\code{integrate.segments()}).  Also, evaluation of a function at a
-  point using the residue theorem (\code{residue()}).
+  point using the residue theorem (\code{residue()}).   A vignette
+  (\dQuote{\code{residuetheorem}}) is provided in the package.
 }
 \usage{
 myintegrate(f, lower,upper, ...)
@@ -89,11 +90,9 @@ Sigma <- function(z){sigma(z,g)}
 WeierstrassP <- function(z){P(z,g)}
 
 jj <- integrate.contour(Zeta,u,udash) 
-abs(jj-2*pi*1i)                              # should be zero
-abs(integrate.contour(Sigma,u,udash))        # should be zero
-abs(integrate.contour(WeierstrassP,u,udash)) # should be zero
-
-
+abs(jj-2*pi*1i)                              # zero to numerical precision
+abs(integrate.contour(Sigma,u,udash))        # zero to numerical precision
+abs(integrate.contour(WeierstrassP,u,udash)) # zero to numerical precision
 
 
 # Now integrate f(x) = exp(1i*x)/(1+x^2) from -Inf to +Inf along the
