@@ -80,10 +80,10 @@ H1(u, m, ...)
 
 m <- 0.5
 derivative <- function(small){(theta1(small,m=m)-theta1(0,m=m))/small}
-right.hand.side1 <-  theta2(0,m=m)*theta3(0,m=m)*theta4(0,m=m)
-right.hand.side2 <-  theta1.dash.zero(m)
+right.hand.side1 <- theta2(0,m=m)*theta3(0,m=m)*theta4(0,m=m)
+right.hand.side2 <- theta1.dash.zero(m)
 
-derivative(1e-5)-right.hand.side1   #should be zero
-derivative(1e-5)-right.hand.side2   #should be zero
+derivative(1e-5) - right.hand.side1   # should be zero
+derivative(1e-5) - right.hand.side2   # should be zero
 }
 \keyword{array}
