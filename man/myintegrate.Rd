@@ -102,7 +102,7 @@ abs(integrate.contour(WeierstrassP,u,udash)) # zero to numerical precision
 # the real axis, then following a semicircle in the upper half plane, of
 # radius R to close the loop.  Now consider large R.  Then P encloses a
 # pole at +1i [there is one at -1i also, but this is outside P, so
-# irrelevent here] at which the residue is -1i/2e.  Thus the integral of
+# irrelevant here] at which the residue is -1i/2e.  Thus the integral of
 # f(z) = 2i*pi*(-1i/2e) = pi/e along P; the contribution from the
 # semicircle tends to zero as R tends to infinity; thus the integral
 # along the real axis is the whole path integral, or pi/e.

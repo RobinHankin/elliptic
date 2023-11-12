@@ -95,7 +95,7 @@ parameters(Omega=NULL, g=NULL, description=NULL)
 
 
 ## from Omega to g and and back;
-## following should be equivalentto c(1,1i):
+## following should be equivalent to c(1,1i):
  parameters(g=parameters(Omega=c(1,1i))$g)$Omega 
 
 

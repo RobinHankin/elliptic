@@ -3,7 +3,7 @@
 \alias{unimodularity}
 \title{Unimodular matrices}
 \description{
-Systematically generates unimodular matrices; numerical verfication of a
+Systematically generates unimodular matrices; numerical verification of a
 function's unimodularness
 }
 \usage{

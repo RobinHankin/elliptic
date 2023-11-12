@@ -56,7 +56,7 @@ H1(u, m, ...)
     \code{theta1()} et seq; notably, \code{maxiter}}
 }
 \details{
-  Functions \code{theta.00()} eq seq are just wrappers for 
+  Functions \code{theta.00()} et seq are just wrappers for 
   \code{theta1()} et seq, following Whittaker and Watson's terminology
   on p487; the notation does not appear in Abramowitz and Stegun.
   \itemize{
