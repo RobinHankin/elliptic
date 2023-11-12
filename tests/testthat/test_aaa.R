@@ -1,9 +1,10 @@
-require(elliptic)
-require(MASS)
+test_that("Test suite aaa",{
+
 
 safety.factor <- 100
-"test" <- function(x,abs.error=1e-6){stopifnot(abs(x)<abs.error*safety.factor)}
-
+`test` <- function(x,abs.error=1e-6){
+  expect_true(all(abs(x)<abs.error*safety.factor))
+}
 
 
 # equations 16.20.1 to 16.20.3, Jacobi's imaginary transform:
@@ -24,7 +25,7 @@ test(abs(e16.28.5(m=seq(from=-0.234+0.1i, to=0.44-1i,len=100))),abs.error=2e-15)
 
 #Now, try and get 16.28.6, p576: theta1dash=theta2*theta3*theta4:
 m <- 0.5
-derivative <- function(small){(theta1(small,m=m)-theta1(0,m=m))/small}
+`derivative` <- function(small){(theta1(small,m=m)-theta1(0,m=m))/small}
 right.hand.side <-  theta2(0,m=m)*theta3(0,m=m)*theta4(0,m=m)
 test(derivative(1e-7)-right.hand.side)
 #looks fine.
@@ -197,7 +198,7 @@ test(mobius(23*1:10)-mobius(23)*mobius(1:10))
 
 #Numerical verification of Mobius inversion theorem, using f(n)=1.
 
-mobius.invert <- function(n){
+`mobius.invert` <- function(n){
   f <- factorize(n)
   d <- unique(apply(f^t(expand.grid(lapply(1:length(f),function(...){0:1}))),2,prod))
   sum(mobius(d)*divisor(n/d,k=0))
@@ -205,3 +206,5 @@ mobius.invert <- function(n){
 
 jj <- c(1:10,1000:1030)
 test(sapply(jj,mobius.invert)-1)
+
+})
