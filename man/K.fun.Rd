@@ -7,7 +7,7 @@
   or \eqn{k} (\code{K.fun.k()}).
 }
 \usage{
-K.fun(m, strict=TRUE, maxiter=7)
+K.fun(m, strict=TRUE, maxiter=7, miniter=3)
 }
 \arguments{
   \item{m}{Real or complex parameter}
@@ -15,6 +15,8 @@ K.fun(m, strict=TRUE, maxiter=7)
     error if the sequence has not converged exactly, and \code{FALSE}
     meaning to return the partial sum, and a warning}
   \item{maxiter}{Maximum number of iterations}
+  \item{miniter}{Minimum number of iterations to guard against premature
+    exit if an addend is zero exactly}
 }
 \references{
    R. Coquereaux, A. Grossman, and B. E. Lautrup. \emph{Iterative

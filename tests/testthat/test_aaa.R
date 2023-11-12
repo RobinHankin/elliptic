@@ -207,4 +207,12 @@ test(mobius(23*1:10)-mobius(23)*mobius(1:10))
 jj <- c(1:10,1000:1030)
 test(sapply(jj,mobius.invert)-1)
 
+
+## Test issue #7, reported by ahstat:
+test(theta3(z = pi/4, q = exp(-pi/4), maxiter = 10000) - 0.9135722)
+test(theta3(z = pi/4+1e-15, q = exp(-pi/4), maxiter = 10000) - 0.9135722)
+
+test(theta3(z = pi/4, q = exp(-pi/16), maxiter = 10000) -  0.1745516)
+test(theta3(z = pi/4+1e-15, q = exp(-pi/16), maxiter = 10000)-  0.1745516)
+
 })

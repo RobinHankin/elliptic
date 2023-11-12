@@ -7,9 +7,10 @@
 First, second, and third derivatives of the theta functions
 }
 \usage{
-theta1dash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
-theta1dashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
-theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30)
+theta1dash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter
+= 30, miniter=3)
+theta1dashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30,miniter=3)
+theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30,miniter=3)
 }
 \arguments{
   \item{z}{Primary complex argument}
@@ -22,6 +23,8 @@ theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter
     list, with first element the function evaluation, and second element
     the number of iterations used}
   \item{maxiter}{Maximum number of iterations}
+  \item{miniter}{Minimum number of iterations to guard against premature
+    exit if an addend is zero exactly}
 }
 \details{
   Uses direct expansion as for \code{theta1()} et seq

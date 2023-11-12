@@ -26,14 +26,14 @@ Computes Jacobi's four theta functions for complex \eqn{z} in terms
 of the parameter \eqn{m} or \eqn{q}.
 }
 \usage{
-theta1  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta2  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta3  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta4  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta.00(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta.01(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta.10(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
-theta.11(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30)
+theta1  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta2  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta3  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta4  (z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta.00(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta.01(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta.10(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
+theta.11(z, ignore=NULL, m=NULL, q=NULL, give.n=FALSE, maxiter=30, miniter=3)
 Theta (u, m, ...)
 Theta1(u, m, ...)
 H (u, m, ...)
@@ -52,6 +52,8 @@ H1(u, m, ...)
     the number of iterations used}
   \item{maxiter}{Maximum number of iterations used.  Note that the
     series generally converge very quickly}
+  \item{miniter}{Minimum number of iterations to guard against premature
+    exit if an addend is zero exactly}
   \item{...}{In functions that take it, extra arguments passed to
     \code{theta1()} et seq; notably, \code{maxiter}}
 }
