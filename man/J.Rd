@@ -39,7 +39,7 @@ lambda(tau, ...)
  z <- seq(from=1+0.7i,to=-2+1i,len=20)
  plot(abs((J(z)-J(-1/z))/J(z)))
 
- # Verify that lamba(z) = lambda(Mz) where M is a modular matrix with b,c
+ # Verify that lambda(z) = lambda(Mz) where M is a modular matrix with b,c
  # even and a,d odd:
 
  M <- matrix(c(5,4,16,13),2,2)

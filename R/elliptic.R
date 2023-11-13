@@ -293,7 +293,7 @@ function (u, m, ...)
     theta4(v, m = m, ...)/theta4(0, m = m, ...)
 }
 "e16.37.1" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3)
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -302,7 +302,7 @@ function (u, m, maxiter = 30)
     for (n in 1:maxiter) {
         out.new <- out * (1 - 2 * q^(2 * n) * cos(2 * v) + q^(4 * 
             n))
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((16 * q/(m * (1 - m)))^(1/6) * sin(v) * out)
         }
         out <- out.new
@@ -310,7 +310,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.37.2" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3) 
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -319,7 +319,7 @@ function (u, m, maxiter = 30)
     for (n in 1:maxiter) {
         out.new <- out * (1 + 2 * q^(2 * n) * cos(2 * v) + q^(4 * 
             n))
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((16 * q * sqrti(1 - m)/m)^(1/6) * cos(v) * 
                 out)
         }
@@ -328,7 +328,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.37.3" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3)
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -337,7 +337,7 @@ function (u, m, maxiter = 30)
     for (n in 1:maxiter) {
         out.new <- out * (1 + 2 * q^(2 * n - 1) * cos(2 * v) + 
             q^(4 * n - 2))
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((m * (1 - m)/(16 * q))^(1/12) * out)
         }
         out <- out.new
@@ -345,7 +345,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.37.4" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3)
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -354,7 +354,7 @@ function (u, m, maxiter = 30)
     for (n in 1:maxiter) {
         out.new <- out * (1 - 2 * q^(2 * n - 1) * cos(2 * v) + 
             q^(4 * n - 2))
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((m/(16 * q * (1 - m)^2))^(1/12) * out)
         }
         out <- out.new
@@ -362,7 +362,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.38.1" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3) 
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -371,7 +371,7 @@ function (u, m, maxiter = 30)
     for (n in 0:maxiter) {
         out.new <- out + (-1)^n * q^(n * (n + 1)) * sin((2 * 
             n + 1) * v)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return(out.new * sqrt(2 * pi * sqrt(q)/(sqrti(m) * 
                 sqrti(1 - m) * K)))
         }
@@ -380,7 +380,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.38.2" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3) 
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -389,7 +389,7 @@ function (u, m, maxiter = 30)
     for (n in 0:maxiter) {
         out.new <- out + q^(n * (n + 1)) * cos((2 * n + 1) * 
             v)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return(out.new * sqrt(2 * pi * sqrti(q)/(sqrti(m) * 
                 K)))
         }
@@ -398,7 +398,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.38.3" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3) 
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -406,7 +406,7 @@ function (u, m, maxiter = 30)
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + q^(n * n) * cos(2 * n * v)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((1 + 2 * out.new) * sqrt(pi/(2 * K)))
         }
         out <- out.new
@@ -414,7 +414,7 @@ function (u, m, maxiter = 30)
     stop("maximum iterations reached")
 }
 "e16.38.4" <-
-function (u, m, maxiter = 30) 
+function (u, m, maxiter = 30, miniter=3) 
 {
     q <- nome(m)
     K <- K.fun(m)
@@ -422,7 +422,7 @@ function (u, m, maxiter = 30)
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + (-1)^n * q^(n * n) * cos(2 * n * v)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             return((1 + 2 * out.new) * sqrt(pi/(2 * sqrti(1 - 
                 m) * K)))
         }
@@ -966,14 +966,14 @@ function (tau, use.theta = TRUE, ...)
     }
 }
 "K.fun" <-
-function (m, strict = TRUE, maxiter = 7) 
+function (m, strict = TRUE, maxiter = 7, miniter=3) 
 {
     a.old <- 1
     b.old <- sqrti(1 - m)
     for (i in 1:maxiter) {
         a.new <- 0.5 * (a.old + b.old)
         b.new <- sqrti(a.old * b.old)
-        if (near.match(a.new, a.old)) {
+        if (near.match(a.new, a.old) && i>miniter) {
             return(pi/(2 * a.new))
         }
         a.old <- a.new
@@ -1563,7 +1563,7 @@ function (u, m, ...)
 }
 "theta.00" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1574,7 +1574,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + q^(n^2) * cos(2 * z * n)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 1 + 2 * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1589,7 +1589,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta.01" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1600,7 +1600,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + (-1)^n * q^(n^2) * cos(2 * z * n)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 1 + 2 * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1615,7 +1615,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta1" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1627,7 +1627,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out + (-1)^n * q^(n * (n + 1)) * sin((2 * 
             n + 1) * z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new)&& n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1649,7 +1649,7 @@ function (u, m, ...)
 }
 "theta.10" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1661,7 +1661,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out + q^(n * (n + 1)) * cos((2 * n + 1) * 
             z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1676,7 +1676,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta.11" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1688,7 +1688,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out + (-1)^n * q^(n * (n + 1)) * sin((2 * 
             n + 1) * z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1703,7 +1703,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta1dash" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1715,7 +1715,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out + (-1)^n * q^(n * (n + 1)) * (2 * n + 
             1) * cos((2 * n + 1) * z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1730,7 +1730,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta1dashdash" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1742,7 +1742,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out - (-1)^n * q^(n * (n + 1)) * (2 * n + 
             1)^2 * sin((2 * n + 1) * z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1757,7 +1757,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta1dashdashdash" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30,miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1769,7 +1769,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out - (-1)^n * q^(n * (n + 1)) * (2 * n + 
             1)^3 * cos((2 * n + 1) * z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1796,7 +1796,7 @@ function (q, ...)
 }
 "theta2" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30,miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1808,7 +1808,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     for (n in 0:maxiter) {
         out.new <- out + q^(n * (n + 1)) * cos((2 * n + 1) * 
             z)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 2 * q^(1/4) * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1823,7 +1823,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta3" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30,miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1834,7 +1834,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + q^(n^2) * cos(2 * z * n)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 1 + 2 * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
@@ -1849,7 +1849,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 }
 "theta4" <-
 function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, 
-    maxiter = 30) 
+    maxiter = 30, miniter=3) 
 {
     if (!xor(is.null(m), is.null(q))) {
         stop("supply exactly one of m, q")
@@ -1860,7 +1860,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
     out <- 0
     for (n in 1:maxiter) {
         out.new <- out + (-1)^n * q^(n^2) * cos(2 * z * n)
-        if (near.match(out, out.new)) {
+        if (near.match(out, out.new) && n>miniter) {
             ans <- 1 + 2 * out
             if (give.n) {
                 return(list(iterations = n, ans = ans))
