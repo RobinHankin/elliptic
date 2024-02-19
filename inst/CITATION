@@ -1,20 +1,15 @@
-citHeader("To cite in publications use:")
+citHeader("To cite the elliptic package in publications use:")
 
-citEntry(entry = "Article",
-	 title = {
-             paste("Introducing elliptic, an R package for elliptic
-	 and modular functions")
-	     },
-	 author = personList(
-         person(given = c("Robin","K.S."),
-		family = "Hankin",
-		email="hankin.robin@gmail.com")),
+bibentry(bibtype = "Article",
+	 title = "{Introducing elliptic, an R package for elliptic
+	 and modular functions}",
+	 author = person("Robin K. S. Hankin"),
 	 journal = "Journal of Statistical Software",
          year = "2006",
 	 month = "February",
 	 volume = "15",
 	 issue = "7",
-	 textVersion = {
+	 textVersion =
              paste("R. K. S. Hankin",
                    "2006.",
                    "Introducing elliptic, an R package for elliptic
@@ -22,6 +17,6 @@ citEntry(entry = "Article",
 	     	   "Journal of Statistical Software",
 		   "15(7)"
 		   )
-         })
+        )
 
 
