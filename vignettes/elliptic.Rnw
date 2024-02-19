@@ -38,9 +38,7 @@ functions, visualization of complex functions}
 
 \Address{
   Robin K. S. Hankin\\
-  Auckland University of Technology\\
-  Auckland\\
-  New Zealand\\
+  The University of Stirling\\
   E-mail: \email{hankin.robin@gmail.com}
 }
 
@@ -74,13 +72,14 @@ interesting and instructive non-elementary examples of many results in
 complex analysis such as Cauchy's integral theorem and the residue
 theorem.
 
-In this paper I introduce \pkg{elliptic}, a new \proglang{R} package for
-numerical calculation of Weierstrass and Jacobi elliptic functions,
-theta functions and modular functions.  The emphasis is on efficient
-numerical calculation, and informative visualization techniques.
+In this paper I introduce \pkg{elliptic}, a new \proglang{R} package
+for numerical calculation of Weierstrass and Jacobi elliptic
+functions, theta functions and modular functions; it is based
+on~\citep{hankin2006}.  The emphasis is on efficient numerical
+calculation, and informative visualization techniques.
 
-The package is available on CRAN, \url{http://cran.R-project.org/}
-\citep{rcore2005}. 
+The package is available on CRAN,
+\url{https://CRAN.R-project.org/package=elliptic} \citep{rcore2005}.
 
 \section{Elliptic functions}\label{section:introduction}
 
