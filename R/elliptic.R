@@ -29,7 +29,7 @@ function (u)
 "as.primitive" <-
 function (p, n = 3, tol = 1e-05, give.answers = FALSE) 
 {
-    if (class(p) == "primitive") {
+    if (inherits(p, "primitive")) {
         return(p)
     }
     tau <- p[2]/p[1]
@@ -142,14 +142,14 @@ function (a, l = 1)
 function (z, g, N = 5, use.fpp = FALSE, give = FALSE) 
 {
     if (use.fpp) {
-        if (class(g) != "parameters") {
+        if (!inherits(g,"parameters")){
             g <- parameters(g = g)
             g2 <- g$g[1]
             g3 <- g$g[2]
         }
         z <- fpp(z, 2 * g$Omega)
     }
-    if (class(g) != "parameters") {
+    if (!inherits(g,"parameters")){
         g2 <- g[1]
         g3 <- g[2]
     }
