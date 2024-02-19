@@ -7,10 +7,12 @@
 First, second, and third derivatives of the theta functions
 }
 \usage{
-theta1dash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter
-= 30, miniter=3)
-theta1dashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30,miniter=3)
-theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE, maxiter = 30,miniter=3)
+theta1dash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
+     maxiter = 30, miniter=3)
+theta1dashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
+     maxiter = 30,miniter=3)
+theta1dashdashdash(z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
+     maxiter = 30,miniter=3)
 }
 \arguments{
   \item{z}{Primary complex argument}
