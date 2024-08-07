@@ -73,7 +73,7 @@ library("elliptic")
 ```
 
 The package comes with an extensive and detailed vignette; type 
-`vignette("ellipticpaper")` at the R commandline.
+`vignette("elliptic")` at the R commandline.
 
 # The package in use
 

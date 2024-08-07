@@ -23,16 +23,12 @@ The elliptic package: Weierstrass and Jacobi elliptic functions in R
 
 An elliptic function is a meromorphic complex function that is periodic
 in two directions. That is, there exist two nonzero complex numbers
-![\\omega_1,\\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2")
+![\omega_1,\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2")
 with
-![\\omega_1/\\omega_2\\in\\mathbb{C}\\backslash\\mathbb{R}](https://latex.codecogs.com/png.latex?%5Comega_1%2F%5Comega_2%5Cin%5Cmathbb%7BC%7D%5Cbackslash%5Cmathbb%7BR%7D "\omega_1/\omega_2\in\mathbb{C}\backslash\mathbb{R}")
+![\omega_1/\omega_2\in\mathbb{C}\backslash\mathbb{R}](https://latex.codecogs.com/png.latex?%5Comega_1%2F%5Comega_2%5Cin%5Cmathbb%7BC%7D%5Cbackslash%5Cmathbb%7BR%7D "\omega_1/\omega_2\in\mathbb{C}\backslash\mathbb{R}")
 such that
 
-![
-f(z) = f(z+2\\omega_1)=f(z+2\\omega_2)
-](https://latex.codecogs.com/png.latex?%0Af%28z%29%20%3D%20f%28z%2B2%5Comega_1%29%3Df%28z%2B2%5Comega_2%29%0A "
-f(z) = f(z+2\omega_1)=f(z+2\omega_2)
-")
+![f(z) = f(z+2\omega_1)=f(z+2\omega_2)](https://latex.codecogs.com/png.latex?f%28z%29%20%3D%20f%28z%2B2%5Comega_1%29%3Df%28z%2B2%5Comega_2%29 "f(z) = f(z+2\omega_1)=f(z+2\omega_2)")
 
 whenever ![f(z)](https://latex.codecogs.com/png.latex?f%28z%29 "f(z)")
 is defined; note carefully the factors of 2. There are two natural ways
@@ -60,13 +56,13 @@ library("elliptic")
 ```
 
 The package comes with an extensive and detailed vignette; type
-`vignette("ellipticpaper")` at the R commandline.
+`vignette("elliptic")` at the R commandline.
 
 # The package in use
 
 The Weierstrass elliptic function is evaluated numerically by `P()`,
 which takes the half periods
-![\\omega_1,\\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2").
+![\omega_1,\omega_2](https://latex.codecogs.com/png.latex?%5Comega_1%2C%5Comega_2 "\omega_1,\omega_2").
 Thus
 
 ``` r
@@ -96,9 +92,9 @@ lines(y=c(-4,4),x=c(4,4))
 ![](README_files/figure-gfm/view_wp-1.png)<!-- -->
 
 Related functions include
-![\\sigma(\\cdot)](https://latex.codecogs.com/png.latex?%5Csigma%28%5Ccdot%29 "\sigma(\cdot)")
+![\sigma(\cdot)](https://latex.codecogs.com/png.latex?%5Csigma%28%5Ccdot%29 "\sigma(\cdot)")
 (`sigma()` and the
-![\\zeta(\\cdot)](https://latex.codecogs.com/png.latex?%5Czeta%28%5Ccdot%29 "\zeta(\cdot)")
+![\zeta(\cdot)](https://latex.codecogs.com/png.latex?%5Czeta%28%5Ccdot%29 "\zeta(\cdot)")
 (`zeta()`).
 
 ## Jacobi forms
@@ -136,8 +132,8 @@ rect(-K,0,K,K,lwd=3)
 
 ## References
 
--   M Abramowitz and IA Stegun (1965). *Handbook of Mathematical
-    Functions*. New York: Dover
--   RKS Hankin (2006). “Introducing elliptic, an R package for elliptic
-    and modular functions”. *Journal of Statistical Software*, 15:7
--   K Chandrasekharan (1985). *Elliptic functions*. Springer-Verlag
+- M Abramowitz and IA Stegun (1965). *Handbook of Mathematical
+  Functions*. New York: Dover
+- RKS Hankin (2006). “Introducing elliptic, an R package for elliptic
+  and modular functions”. *Journal of Statistical Software*, 15:7
+- K Chandrasekharan (1985). *Elliptic functions*. Springer-Verlag
