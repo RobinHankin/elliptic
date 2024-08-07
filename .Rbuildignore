@@ -5,3 +5,5 @@ README.Rmd
 README_files/
 .gitignore
 .travis.yml
+^CODE_OF_CONDUCT.md$
+^CONTRIBUTING.md$
