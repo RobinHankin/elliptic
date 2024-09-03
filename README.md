@@ -11,6 +11,7 @@ The elliptic package: Weierstrass and Jacobi elliptic functions in R
 ![](https://cranlogs.r-pkg.org/badges/grand-total/elliptic?color=green)
 ![](https://cranlogs.r-pkg.org/badges/elliptic?color=green)
 ![](https://cranlogs.r-pkg.org/badges/last-week/elliptic?color=green)
+[![R-CMD-check](https://github.com/RobinHankin/elliptic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/RobinHankin/elliptic/actions/workflows/R-CMD-check.yaml)
 
 ## Overview
 

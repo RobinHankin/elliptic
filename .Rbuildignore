@@ -6,3 +6,4 @@ README_files/
 .travis.yml
 ^CODE_OF_CONDUCT.md$
 ^CONTRIBUTING.md$
+^\.github$
