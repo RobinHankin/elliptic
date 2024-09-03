@@ -7,3 +7,4 @@ README_files/
 ^CODE_OF_CONDUCT.md$
 ^CONTRIBUTING.md$
 ^\.github$
+^codecov\.yml$
