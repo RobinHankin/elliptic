@@ -50,50 +50,6 @@ customizable but has an extensive set of built-in colourmaps.
 
 Maintainer: \packageMaintainer{elliptic}
 }
-\references{
-  \itemize{
-    \item
-    R. K. S. Hankin.  \emph{Introducing Elliptic, an R package for
-      Elliptic and Modular Functions}.  Journal of Statistical Software,
-    Volume 15, Issue 7.  February 2006.
-    \item
-    M. Abramowitz and I. A. Stegun 1965. \emph{Handbook of Mathematical
-      Functions.}  New York, Dover.
-    \item
-    K. Chandrasekharan 1985. \emph{Elliptic functions},  Springer-Verlag.
-    \item
-    E. T. Whittaker and G. N. Watson 1952.  \emph{A Course of Modern
-      Analysis}, Cambridge University Press (fourth edition)
-    \item
-    G. H. Hardy and  E. M. Wright 1985.  \emph{An introduction to the
-      theory of numbers}, Oxford University Press (fifth edition)
-    \item
-    S. D. Panteliou and A. D. Dimarogonas and I. N .Katz 1996.
-    \emph{Direct and inverse interpolation for Jacobian elliptic
-      functions, zeta function of Jacobi and complete elliptic integrals
-      of the second kind}.  Computers and Mathematics with Applications,
-    volume 32, number 8, pp51-57
-    \item
-    E. L. Wachspress 2000.  \emph{Evaluating Elliptic functions and their
-      inverses}.  Computers and Mathematics with Applications, volume 29,
-    pp131-136
-    \item
-    D. G. Vyridis and S. D. Panteliou and I. N. Katz 1999.  \emph{An inverse
-      convergence approach for arguments of Jacobian elliptic functions}.
-    Computers and Mathematics with Applications, volume 37, pp21-26
-    \item
-    S. Paszkowski 1997.  \emph{Fast convergent quasipower series for some
-      elementary and special functions}.   Computers and Mathematics with
-    Applications, volume 33, number 1/2, pp181-191
-    \item
-    B. Thaller 1998. \emph{Visualization of complex functions}, The
-    Mathematica Journal, 7(2):163--180
-    \item
-    J. Kotus and M. Urb\'{a}nski 2003.  \emph{Hausdorff dimension and Hausdorff
-      measures of Julia sets of elliptic functions}.  Bulletin of the London
-    Mathematical Society, volume 35, pp269-275
-  }
-}
 \keyword{ package }
 \examples{
      ## Example 8, p666, RHS:
