@@ -82,8 +82,8 @@ parameters(Omega=NULL, g=NULL, description=NULL)
 \author{Robin K. S. Hankin}
 \examples{
  ## Example 6, p665, LHS
- parameters(g=c(10,2+0i))
-
+ parameters(g=c(10,2))
+ ## Not clear to me how AMS-55 justify 7 sig figs
 
  ## Example 7, p665, RHS
  a <- parameters(g=c(7,6)) ;  attach(a)
