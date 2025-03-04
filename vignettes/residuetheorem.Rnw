@@ -27,10 +27,8 @@
 
 \Address{
   Robin K. S. Hankin\\
-  Auckland University of Technology\\
-  2-14 Wakefield Street\\
-  Auckland\\
-  New Zealand\\
+  University of Stirling\\
+  Scotland\\
   E-mail: \email{hankin.robin@gmail.com}
 }
 
