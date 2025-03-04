@@ -62,7 +62,7 @@ is equal to~$2\pi i$ times the sum of the residues inside it.
     \caption{Contour\label{semicircular_path} integration path
       from~$(-R,0)$ to~$(R,0)$ along the real axis, followed by a
       semicircular return path in the positive imaginary half-plane.
-      Poles of~$e^{ix}/\left(1+x+2\right)$ symbolised by explosions}
+      Poles of~$e^{ix}/\left(1+x^2\right)$ symbolised by explosions}
   \end{center}
 \end{figure}
 
