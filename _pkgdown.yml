@@ -1,4 +1,4 @@
 url: https://robinhankin.github.io/elliptic/
 template:
-  bootstrap: 5
-
+  math-rendering: katex
+  
