@@ -200,7 +200,7 @@ test(mobius(23*1:10)-mobius(23)*mobius(1:10))
 
 `mobius.invert` <- function(n){
   f <- factorize(n)
-  d <- unique(apply(f^t(expand.grid(lapply(1:length(f),function(...){0:1}))),2,prod))
+  d <- unique(apply(f^t(expand.grid(lapply(seq_along(f),function(...){0:1}))),2,prod))
   sum(mobius(d)*divisor(n/d,k=0))
 }
 
