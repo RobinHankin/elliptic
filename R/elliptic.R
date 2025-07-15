@@ -1375,7 +1375,7 @@ function (z, Omega, pari.fun = "ellwp", numerical = TRUE)
     pari.complex <- function(x) {
         gsub("i", "*I", x)
     }
-    for (i in 1:nrow(a)) {
+    for (i in seq_len(nrow(a))) {
         string <- paste("echo '", pari.fun, "([", pari.complex(2 * 
             a[i, 2]), ",", pari.complex(2 * a[i, 3]), "],", pari.complex(a[i, 
             1]), ")' | gp -q")
@@ -1997,7 +1997,7 @@ function (x, y, z, scheme = 0, real.contour = TRUE, imag.contour = real.contour,
         return(f)
     }
     jj <- z
-    jj[] <- (1:length(z))/length(z)
+    jj[] <- seq_along(z)/length(z)
     jj <- Re(jj)
     breakup <- function(x) {
         ifelse(x > 1/2, 3/2 - x, 1/2 - x)
