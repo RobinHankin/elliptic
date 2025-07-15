@@ -878,14 +878,14 @@ function (b, ...)
 function (u, m, ...) 
 {
     K <- K.fun(m)
-    v = pi * u/(2 * K)
+    v <- pi * u/(2 * K)
     return(theta1(v, m = m, ...))
 }
 "H1" <-
 function (u, m, ...) 
 {
     K <- K.fun(m)
-    v = pi * u/(2 * K)
+    v <- pi * u/(2 * K)
     return(theta2(v, m = m, ...))
 }
 "half.periods" <-
@@ -1558,7 +1558,7 @@ function (u, m, ...)
 function (u, m, ...) 
 {
     K <- K.fun(m)
-    v = pi * u/(2 * K)
+    v <- pi * u/(2 * K)
     return(theta4(v, m = m, ...))
 }
 "theta.00" <-
@@ -1644,7 +1644,7 @@ function (z, ignore = NULL, m = NULL, q = NULL, give.n = FALSE,
 function (u, m, ...) 
 {
     K <- K.fun(m)
-    v = pi * u/(2 * K)
+    v <- pi * u/(2 * K)
     return(theta3(v, m = m, ...))
 }
 "theta.10" <-
