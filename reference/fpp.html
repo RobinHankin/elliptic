@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fpp</span><span class="op">(</span><span class="va">z</span>, <span class="va">p</span>, give<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fpp</span><span class="op">(</span><span class="va">z</span>, <span class="va">p</span>, give <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu">mn</span><span class="op">(</span><span class="va">z</span>, <span class="va">p</span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -85,7 +85,7 @@
     <p>Function <code>fpp()</code> is fully vectorized.</p>
 <p>Use function <code>mn()</code> to determine the “coordinates” of a
   point.</p>
-<p>Use <code>floor(mn(z,p)) %*% p </code> to give the  complex value of
+<p>Use <code>floor(mn(z, p)) %*% p</code> to give the  complex value of
   the (unique) point in the same period parallelogram as <code>z</code> that
   is congruent to the origin.</p>
     </div>
@@ -97,7 +97,7 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.01</span><span class="op">+</span><span class="fl">1.123i</span>, <span class="fl">1.1</span><span class="op">+</span><span class="fl">1.43i</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">mn</span><span class="op">(</span>z<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,<span class="va">p</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">p</span>  <span class="co">## should be close to 1:10</span></span></span>
+<span class="r-in"><span><span class="fu">mn</span><span class="op">(</span>z<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="va">p</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="va">p</span>  <span class="co">## should be close to 1:10</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                   [,1]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1,]  1-1.277872e-16i</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [2,]  2-2.555744e-16i</span>
@@ -111,19 +111,18 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [10,] 10-1.321499e-14i</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">#Now specify some periods:</span></span></span>
-<span class="r-in"><span> <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">1i</span>,<span class="fl">1</span><span class="op">-</span><span class="fl">1i</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">1i</span>, <span class="fl">1</span><span class="op">-</span><span class="fl">1i</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">#Define a sequence of complex numbers that zooms off to infinity:</span></span></span>
-<span class="r-in"><span> <span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>,by<span class="op">=</span><span class="va">pi</span><span class="op">+</span><span class="fl">1i</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,len<span class="op">=</span><span class="fl">2007</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>, by<span class="op">=</span><span class="va">pi</span><span class="op">+</span><span class="fl">1i</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, len<span class="op">=</span><span class="fl">2007</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">#and plot the sequence, modulo the periods:</span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">fpp</span><span class="op">(</span>z<span class="op">=</span><span class="va">u</span>,p<span class="op">=</span><span class="va">p2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">fpp</span><span class="op">(</span>z<span class="op">=</span><span class="va">u</span>, p<span class="op">=</span><span class="va">p2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">#and check that the resulting points are within the qpp:</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html" class="external-link">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/graphics/polygon.html" class="external-link">polygon</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="fpp-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span> </span></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>

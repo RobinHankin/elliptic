@@ -90,11 +90,11 @@ on complex functions</p>
     </div>
     <div id="value">
     <h2>Value</h2>
-    <p>If <code>give</code> is <code>FALSE</code>,
-  returns \(z\) with \(|f(z)|&lt;tol\); if <code>TRUE</code>, returns a list
-  with elements <code>root</code> (the estimated root), <code>f.root</code> (the
-  function evaluated at the estimated root; should have small modulus),
-  and <code>iter</code>, the number of iterations required.</p>
+    <p>If argument <code>give</code> is <code>FALSE</code>, returns \(z\) with
+  \(|f(z)|&lt;tol\); if <code>TRUE</code>, returns a list with elements
+  <code>root</code> (the estimated root), <code>f.root</code> (the function
+  evaluated at the estimated root; should have small modulus), and
+  <code>iter</code>, the number of iterations required.</p>
     </div>
     <div id="note">
     <h2>Note</h2>
@@ -136,7 +136,7 @@ on complex functions</p>
 <span class="r-in"><span><span class="co"># Now find the three cube roots of unity:</span></span></span>
 <span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">{</span><span class="va">z</span><span class="op">^</span><span class="fl">3</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="va">gdash</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">{</span><span class="fl">3</span><span class="op">*</span><span class="va">z</span><span class="op">^</span><span class="fl">2</span><span class="op">}</span></span></span>
-<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">+</span><span class="fl">1i</span>,<span class="va">g</span>,<span class="va">gdash</span>,maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">+</span><span class="fl">1i</span>, <span class="va">g</span>, <span class="va">gdash</span>, maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $root</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.5+0.8660254i</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -146,7 +146,7 @@ on complex functions</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $iter</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">-</span><span class="fl">1i</span>,<span class="va">g</span>,<span class="va">gdash</span>,maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">-</span><span class="fl">1i</span>, <span class="va">g</span>, <span class="va">gdash</span>, maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $root</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] -0.5-0.8660254i</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -156,7 +156,7 @@ on complex functions</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $iter</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">+</span><span class="fl">0.5</span><span class="op">+</span><span class="fl">0i</span>,<span class="va">g</span>,<span class="va">gdash</span>,maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">newton_raphson</span><span class="op">(</span><span class="op">+</span><span class="fl">0.5</span><span class="op">+</span><span class="fl">0i</span>, <span class="va">g</span>, <span class="va">gdash</span>, maxiter<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $root</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1+0i</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
