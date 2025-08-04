@@ -1,0 +1,60 @@
+---
+title: "spacing"
+author: "Robin Hankin"
+date: "2025-08-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Some thoughts about spacing.  Tidyverse lore is to include spaces
+everywhere: around arithmetic operators, after commas, and around
+relations such as "=" and ">=".  Now I don't think this is optimal, at
+least for many of the expressions I work with.  I present below
+several versions of an R expression, arranged from least spaces to
+most spaces.  In general, the final version is the tidyverse approved
+version.
+
+```
+1: J(2.3+0.23i,use.theta=TRUE)
+2: J(2.3+0.23i, use.theta=TRUE)
+3: J(2.3 + 0.23i, use.theta = TRUE)
+```
+
+Above, I prefer version `2`.  I think that `2.3+0.23i` is a unit, and
+`use.theta=TRUE` is a unit.
+
+
+```
+1:  seq(from=1+0.7i,to=-2+1i,len=20)
+2:  seq(from=1+0.7i, to=-2+1i, len=20)
+3:  seq(from = 1+0.7i, to = -2+1i, len=20)
+4:  seq(from = 1+0.7i, to = -2+1i, len = 20)
+5:  seq(from = 1 + 0.7i, to = -2 + 1i, len = 20)
+```
+
+
+```
+1: as.primitive(c(3+5i,2+3i))
+2: as.primitive(c(3+5i, 2+3i))
+3: as.primitive(c(3 + 5i, 2 + 3i))
+```
+
+Above, I prefer "2:"
+
+
+```
+-as.primitive(c(3+5i,2+3i),n=5)
++as.primitive(c(3+5i, 2+3i))
++as.primitive(c(3+5i, 2+3i), n = 5)
+ 
+ ##Rounding error:
+-is.primitive(c(1,1i))
++is.primitive(c(1, 1i))
+ 
+ ## Try
+- is.primitive(c(1,1.001i))
++ is.primitive(c(1, 1.001i))
+```
