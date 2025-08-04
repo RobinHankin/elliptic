@@ -39,14 +39,14 @@ is.primitive(p, n = 3, tol = 1e-05)
   one.
   }
 \examples{
-as.primitive(c(3+5i,2+3i))
-as.primitive(c(3+5i,2+3i),n=5)
+as.primitive(c(3+5i, 2+3i))
+as.primitive(c(3+5i, 2+3i), n = 5)
 
 ##Rounding error:
-is.primitive(c(1,1i))
+is.primitive(c(1, 1i))
 
 ## Try
- is.primitive(c(1,1.001i))
+ is.primitive(c(1, 1.001i))
 
 }
 \keyword{array}

@@ -32,9 +32,9 @@ eta.series(z, maxiter=300)
 \author{Robin K. S. Hankin}
 \seealso{\code{\link{farey}}}
 \examples{
- z <- seq(from=1+1i,to=10+0.06i,len=999)
+ z <- seq(from=1+1i, to=10+0.06i, len=999)
  plot(eta(z))
 
-max(abs(eta(z)-eta.series(z)))
+max(abs(eta(z) - eta.series(z)))
 }
 \keyword{math}

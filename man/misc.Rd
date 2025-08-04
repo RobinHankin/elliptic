@@ -21,6 +21,5 @@ Im(x) <- 1
 x <- 1:5
 Im(x) <- 1/x
 
-
 }
 \keyword{math}

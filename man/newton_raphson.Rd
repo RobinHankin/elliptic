@@ -27,11 +27,11 @@ on complex functions
   Bog-standard implementation of the Newton-Raphson algorithm
 }
 \value{
-  If \code{give} is \code{FALSE},
-  returns \eqn{z} with \eqn{|f(z)|<tol}; if \code{TRUE}, returns a list
-  with elements \code{root} (the estimated root), \code{f.root} (the
-  function evaluated at the estimated root; should have small modulus),
-  and \code{iter}, the number of iterations required.
+  If argument \code{give} is \code{FALSE}, returns \eqn{z} with
+  \eqn{|f(z)|<tol}; if \code{TRUE}, returns a list with elements
+  \code{root} (the estimated root), \code{f.root} (the function
+  evaluated at the estimated root; should have small modulus), and
+  \code{iter}, the number of iterations required.
 }
 \note{
 Previous versions of this function used the misspelling
@@ -49,8 +49,8 @@ newton_raphson(-1.4-0.3i,f,fdash,maxiter=10)
 # Now find the three cube roots of unity:
 g <- function(z){z^3-1}
 gdash <- function(z){3*z^2}
-newton_raphson(-0.5+1i,g,gdash,maxiter=10)
-newton_raphson(-0.5-1i,g,gdash,maxiter=10)
-newton_raphson(+0.5+0i,g,gdash,maxiter=10)
+newton_raphson(-0.5+1i, g, gdash, maxiter=10)
+newton_raphson(-0.5-1i, g, gdash, maxiter=10)
+newton_raphson(+0.5+0i, g, gdash, maxiter=10)
 }
 \keyword{math}

@@ -9,7 +9,7 @@
   \eqn{z=m\cdot p_1+n\cdot p_2}{z=m*p_1+n*p_2}.
 }
 \usage{
-fpp(z, p, give=FALSE)
+fpp(z, p, give = FALSE)
 mn(z, p)
 }
 \arguments{
@@ -27,27 +27,26 @@ mn(z, p)
   Use function \code{mn()} to determine the \dQuote{coordinates} of a
   point.
 
-  Use \code{floor(mn(z,p)) \%*\% p } to give the  complex value of
+  Use \code{floor(mn(z, p)) \%*\% p} to give the  complex value of
   the (unique) point in the same period parallelogram as \code{z} that
   is congruent to the origin.
 }
 \author{Robin K. S. Hankin}
 \examples{
 p <- c(1.01+1.123i, 1.1+1.43i)
-mn(z=1:10,p) \%*\% p  ## should be close to 1:10
+mn(z=1:10, p) \%*\% p  ## should be close to 1:10
 
  #Now specify some periods:
- p2 <- c(1+1i,1-1i)
+ p2 <- c(1+1i, 1-1i)
 
  #Define a sequence of complex numbers that zooms off to infinity:
- u <- seq(from=0,by=pi+1i*exp(1),len=2007)
+ u <- seq(from=0, by=pi+1i*exp(1), len=2007)
 
  #and plot the sequence, modulo the periods:
- plot(fpp(z=u,p=p2))
+ plot(fpp(z=u, p=p2))
 
  #and check that the resulting points are within the qpp:
-polygon(c(-1,0,1,0),c(0,1,0,-1))
+ polygon(c(-1, 0, 1, 0), c(0, 1, 0, -1))
  
-
 }
 \keyword{math}

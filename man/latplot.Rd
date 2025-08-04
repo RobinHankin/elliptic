@@ -23,10 +23,10 @@ latplot(p, n=10, do.lines=TRUE, ...)
 }
 \author{Robin K. S. Hankin}
 \examples{
-p1 <- c(1,1i)
-p2 <- c(2+3i,5+7i)
+p1 <- c(1, 1i)
+p2 <- c(2+3i, 5+7i)
 latplot(p1)
-latplot(p2,xlim=c(-4,4),ylim=c(-4,4),n=40)
+latplot(p2, xlim=c(-4,4), ylim=c(-4,4), n=40)
 
 }
 \keyword{math}

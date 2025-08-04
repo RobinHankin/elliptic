@@ -17,7 +17,7 @@ half.periods(ignore=NULL, e=NULL, g=NULL, primitive)
     Legendre's iterative scheme}
 }
 \details{    
-  Parameter \code{e=c(e1,e2,e3)} are the values of the Weierstrass
+  Parameter \code{e=c(e1, e2, e3)} are the values of the Weierstrass
   \eqn{\wp}{P} function at the half periods:
   \deqn{e_1=\wp(\omega_1)\qquad e_2=\wp(\omega_2)\qquad e_3=
   \wp(\omega_3)}{e1=P(omega1), e2=P(omega2), e3=p(omega3)} where
@@ -53,8 +53,8 @@ u <- half.periods(g=c(7,6))
 massage(c(u[1],2*u[2]+u[1]))          ## Example 7, p665, RHS
 
 
-half.periods(g=c(1,1i, 1.1+1.4i))
-half.periods(e=c(1,1i, 2, 1.1+1.4i))
+half.periods(g=c(1, 1i, 1.1+1.4i))
+half.periods(e=c(1, 1i, 2, 1.1+1.4i))
 
 
 g.fun(half.periods(g=c(8,4)))         ##  should be c(8,4)
