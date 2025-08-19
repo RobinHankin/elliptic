@@ -11,3 +11,7 @@ README_files/
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^inst/elliptic_stickermaker.R$
+^inst/spacing.Rmd$
+^inst/spacing.Rmd$
+

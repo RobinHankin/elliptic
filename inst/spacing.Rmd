@@ -1,5 +1,5 @@
 ---
-title: "spacing"
+title: "Some thoughts on whitespace in R code"
 author: "Robin Hankin"
 date: "2025-08-03"
 output: html_document
@@ -9,13 +9,78 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Some thoughts about spacing.  Tidyverse lore is to include spaces
-everywhere: around arithmetic operators, after commas, and around
-relations such as "=" and ">=".  Now I don't think this is optimal, at
-least for many of the expressions I work with.  I present below
-several versions of an R expression, arranged from least spaces to
-most spaces.  In general, the final version is the tidyverse approved
-version.
+When you are expressing mathematical ideas on paper, you want the
+appearance of what you write to be easy to understand mathematically.
+Conventional typesetting, and in particular TeX, does a very good job
+of this.  This document discusses ways of making R expressions easy to
+parse using monospaced font.  The tidyverse team states:
+
+"All style guides are fundamentally opinionated"
+
+Here, I put out some of my own opinions, but attempt to justify them.
+Tidyverse lore is to include spaces everywhere: around arithmetic
+operators, after commas, and around relations such as `=` and `>=`.
+Now I don't think this is optimal, at least for many of the
+expressions I work with.  I present below several versions of an R
+expression, arranged from least spaces to most spaces.  In general,
+the tidyverse approved version is towards the end, as tidyverse people
+tend to put a lot of spaces in their expressions.  Although I
+sometimes agree with the tidyverse worldview, quite often below I will
+make a case for fewer spaces than tidyverse.
+
+```
+1: 1+2*3
+2: 1 + 2*3
+3: 1 + 2 * 3
+```
+
+Above, note that `1+2 * 3` is **definitely wrong**: as a general rule,
+spacing around an operator should indicate low precedence for that
+operator.  Maybe there should be a "cut-off" precedence? So only
+operators below this cut-off value should have spaces.  Anyway,
+standard recommendation is for option 3, having each operator
+surrounded by spaces (but observe that option 2 draws no complaints
+from the Rstudio IDE).  However, because the precedence of `*` is
+higher than that of `+`, one generally parses `1+2*3` as `1 + (2*3)`,
+so my preference would be 2. One wants the tightly-bound expression,
+`2*3`, to be visually perceived as an isolated chunk that, although it
+has some internal structure, is to be considered as a unit. This
+echoes the use of radicals in chemistry; for example, methanol is
+described as CH<sub>3</sub>OH [rather than, for example,
+CH<sub>4</sub>O] because the OH radical often behaves as a discrete
+and object that is difficult to split into an O and an H.  The fact
+that it is actually composed of one atom of oxygen and one of hydrogen
+is often irrelevant if not actively misleading.
+
+```
+1: 1+2*3^4
+2: 1 + 2*3^4
+3: 1 + 2 * 3^4
+4: 1 + 2 * 3 ^ 4
+```
+
+Above, my preference would be option 3, as the `3^4` is the highest
+priority.  However, it is entirely reasonably to view `2*3^4` as an
+indivisible entity, and if so then option 2 would be the best.  If we
+change the sign of the 4 then other issues arise:
+
+```
+1: 1+2*3^-4
+2: 1 + 2*3^-4
+3: 1 + 2 * 3^-4
+4: 1 + 2 * 3 ^ -4
+5: 1 + 2 * 3 ^ - 4
+```
+
+Above, we should be explicit that a unary operator does not require a
+space after it (`+ 3` looks *terrible*; option 5 is an abomination).
+Rstudio complains about options 1, 2, 4, 5.  My favourite would be 3.
+
+
+
+
+
+
 
 ```
 1: J(2.3+0.23i,use.theta=TRUE)
