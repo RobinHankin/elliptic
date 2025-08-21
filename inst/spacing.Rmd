@@ -76,9 +76,20 @@ Above, we should be explicit that a unary operator does not require a
 space after it (`+ 3` looks *terrible*; option 5 is an abomination).
 Rstudio complains about options 1, 2, 4, 5.  My favourite would be 3.
 
+Now let's think about parentheses:
 
 
+```
+1: (1+2)*3
+2: (1 + 2)*3
+3: (1+2) * 3
+4: (1 + 2) * 3
+```
 
+The whole point of parentheses is to subvert the standard arithmetic
+rules of precedence.  If so, option 3 would be the best, as `1+2` is
+the most tightly bound expression.  Options 2 and 4, having the space
+around `+`, are poor because they distract from this.
 
 
 
