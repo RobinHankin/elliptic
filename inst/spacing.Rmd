@@ -18,9 +18,9 @@ parse using monospaced font.  The tidyverse team states:
 "All style guides are fundamentally opinionated"
 
 Here, I put out some of my own opinions, but attempt to justify them.
-Tidyverse lore is to include spaces everywhere: around arithmetic
-operators, after commas, and around relations such as `=` and `>=`.
-Now I don't think this is optimal, at least for many of the
+Tidyverse lore is to include spaces pretty much everywhere: around
+arithmetic operators, after commas, and around relations such as `=`
+and `>=`.  Now I don't think this is optimal, at least for many of the
 expressions I work with.  I present below several versions of an R
 expression, arranged from least spaces to most spaces.  In general,
 the tidyverse approved version is towards the end, as tidyverse people
