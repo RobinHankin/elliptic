@@ -130,13 +130,27 @@ around `+`, are poor because they distract from this.  I would go for
 option 3 here, against RStudio's advice.
 
 
+```
+1: c(a=1,b=2)      ❌
+2: c(a=1, b=2)     ❌
+3: c(a=1 , b=2)    ❌
+4: c(a = 1,b = 2)  ✅
+4: c(a = 1, b = 2) ✅
+```
+
+Above we see, interestingly, that a space after a comma is not
+required for RStudio approval.  I believe that the atoms of this
+expression are `a=1` and `b=2` so there should be no space around the
+equals sign.  I am split between options 2 and 3 on this one.
 
 ```
-1: c(a=1,b=2)
-2: c(a=1, b=2)
-3: c(a=1 , b=2)
-4: c(a = 1,b = 2)
+1: c(a=1,b=2+3i)   ❌
+2: c(a=1, b=2)     ❌
+3: c(a=1 , b=2)    ❌
+4: c(a = 1,b = 2)  ✅
+4: c(a = 1, b = 2) ✅
 ```
+
 
 
 
