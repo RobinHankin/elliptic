@@ -22,21 +22,51 @@ Tidyverse lore is to include spaces pretty much everywhere: around
 arithmetic operators, after commas, and around relations such as `=`
 and `>=`.  Now I don't think this is optimal, at least for many of the
 expressions I work with.  I present below several versions of an R
-expression, arranged from least spaces to most spaces.  In general,
-the tidyverse approved version is towards the end, as tidyverse people
-tend to put a lot of spaces in their expressions.  Although I
-sometimes agree with the tidyverse worldview, quite often below I will
-make a case for fewer spaces than tidyverse.
+expression, arranged from least spaces to most spaces.  I show with a
+tick or a cross whether or not that particular line passes the style
+warning check in Rstudio.  In general, the tidyverse approved versions
+are towards the end, as tidyverse people tend to put a lot of spaces
+in their expressions.  Although I sometimes agree with the tidyverse
+worldview, quite often below I will make a case for fewer spaces than
+tidyverse.
+
+I will start with the trivial case of unary operators:
+
 
 ```
-1: 1+2*3
-2: 1 + 2*3
-3: 1 + 2 * 3
+1: +1  ✅
+2: + 1 ❌
 ```
 
-Above, note that `1+2 * 3` is **definitely wrong**: as a general rule,
-spacing around an operator should indicate low precedence for that
-operator.  Maybe there should be a "cut-off" precedence? So only
+Above, we compare unary `+` with and without a space; tidyverse
+approves of option 1 but not option 2.  This is correct IMO: unary and
+binary operators are fundamentally different.  TeX recognises this and
+typesets $+1$ differently from $1+1$.  It is in fact quite difficult
+to convince TeX to typeset copy such as the chess "win, draw, loss"
+notation [something like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$",
+which would mean 3 wins, 4 draws and 5 losses.  The difficulty is
+persuading TeX to treat the equals sign and the minus sign as unary
+operators].  So what happens if we want to multiply by negative number?
+
+
+```
+1: 2*-3    ❌
+2: 2 * -3  ✅
+3: 2 * - 3 ❌
+```
+
+The minus sign is tightly bound to the 3 on the right, so option 2 is
+the best.
+
+```
+1: 1+2*3     ❌
+2: 1 + 2*3   ✅
+3: 1 + 2 * 3 ✅
+```
+
+In passing, note that `1+2 * 3` is **definitely wrong**: as a general
+rule, spacing around an operator should indicate low precedence for
+that operator.  Maybe there should be a "cut-off" precedence? So only
 operators below this cut-off value should have spaces.  Anyway,
 standard recommendation is for option 3, having each operator
 surrounded by spaces (but observe that option 2 draws no complaints
@@ -53,10 +83,18 @@ that it is actually composed of one atom of oxygen and one of hydrogen
 is often irrelevant if not actively misleading.
 
 ```
-1: 1+2*3^4
-2: 1 + 2*3^4
-3: 1 + 2 * 3^4
-4: 1 + 2 * 3 ^ 4
+1: 1+2*-3     ❌
+2: 1 + 2 * -3 ✅
+```
+
+Above we see a preference for spaces which is technically OK but
+frankly I would prefer brackets here and would plump for `1 + 2*(-3)`
+
+```
+1: 1+2*3^4       ❌
+2: 1 + 2*3^4     ✅
+3: 1 + 2 * 3^4   ✅
+4: 1 + 2 * 3 ^ 4 ✅
 ```
 
 Above, my preference would be option 3, as the `3^4` is the highest
@@ -65,11 +103,11 @@ indivisible entity, and if so then option 2 would be the best.  If we
 change the sign of the 4 then other issues arise:
 
 ```
-1: 1+2*3^-4
-2: 1 + 2*3^-4
-3: 1 + 2 * 3^-4
-4: 1 + 2 * 3 ^ -4
-5: 1 + 2 * 3 ^ - 4
+1: 1+2*3^-4        ❌
+2: 1 + 2*3^-4      ✅
+3: 1 + 2 * 3^-4    ✅
+4: 1 + 2 * 3 ^ -4  ✅
+5: 1 + 2 * 3 ^ - 4 ❌
 ```
 
 Above, we should be explicit that a unary operator does not require a
