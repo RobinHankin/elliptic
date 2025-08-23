@@ -48,11 +48,11 @@ tidyverse.
 I will start with the trivial case of unary operators:
 
 <div class="col2"><p>
-```
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: +1  ✅
 2: + 1 ❌
 ```
-</p><div class="col-break"></div><p>
+</p><div class="col-break"></div>
 Compare unary `+` with and without a space; tidyverse approves of
 option 1 but not option 2.  This is correct IMO: unary 
 operators are tightly bound to their argument.
