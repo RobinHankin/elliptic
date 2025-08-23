@@ -48,6 +48,18 @@ which would mean 3 wins, 4 draws and 5 losses.  The difficulty is
 persuading TeX to treat the equals sign and the minus sign as unary
 operators].
 
+For binary operators `*` and `/` we have slightly different rules
+under RStudio:
+
+```
+1: 2*2   ✅
+2: 2 * 2 ✅
+```
+
+[it is probably worth pointing out here that `2* 2` and `2 *2` draw
+warnings about "inconsistent spacing"].  I have no preference here
+either.
+
 For something like `-a*b`, though, it doesn't matter whether we parse
 this as `(-a)*b` or `-(a*b)`, for both are equivalent to `(-1)*a*b`
 and associativity ensures that the two interpretations are identical.
