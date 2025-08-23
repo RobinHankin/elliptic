@@ -58,12 +58,12 @@ option 1 but not option 2.  This is correct IMO: unary
 operators are tightly bound to their argument.
 <br><br></p></div>
 
-TeX recognises this and typesets $+1$ differently from $1+1$.  It is
-in fact quite difficult to convince TeX to typeset copy such as the
-chess "win, draw, loss" notation [something like "$\mathord{+}3\
-\mathord{=}4\ \mathord{-}5$", which would mean 3 wins, 4 draws and 5
-losses.  The difficulty is persuading TeX to treat the equals sign and
-the minus sign as unary operators].
+TeX recognises this and typesets the space after the `+` differently
+in $+1$ and $1+1$.  It is in fact quite difficult to convince TeX to
+typeset copy such as the chess "win, draw, loss" notation [something
+like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$", which would mean 3
+wins, 4 draws and 5 losses.  The difficulty is persuading TeX to treat
+the equals sign and the minus sign as unary operators].
 
 For binary operators `*` and `/` we have slightly different rules
 under RStudio:
