@@ -8,6 +8,21 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+<style>
+  .col2 {
+    columns: 2 200px;         /* number of columns and width in pixels*/
+    -webkit-columns: 2 200px; /* chrome, safari */
+    -moz-columns: 2 200px;    /* firefox */
+  }
+  
+  .col-break {
+    break-before: column;       /* modern browsers */
+    -webkit-column-break-before: always; /* Safari/Chrome */
+    -moz-column-break-before: always;    /* Firefox */
+  }
+</style>
+
+operators are tightly bound to their argument.<br><br>  </div>
 
 When you are expressing mathematical ideas on paper, you want the
 appearance of what you write to be easy to understand mathematically.
@@ -32,33 +47,40 @@ tidyverse.
 
 I will start with the trivial case of unary operators:
 
-
+<div class="col2"><p>
 ```
 1: +1  ✅
 2: + 1 ❌
 ```
+</p><div class="col-break"></div><p>
+Compare unary `+` with and without a space; tidyverse approves of
+option 1 but not option 2.  This is correct IMO: unary 
+operators are tightly bound to their argument.
+<br><br></p></div>
 
-Above, we compare unary `+` with and without a space; tidyverse
-approves of option 1 but not option 2.  This is correct IMO: unary and
-binary operators are fundamentally different.  TeX recognises this and
-typesets $+1$ differently from $1+1$.  It is in fact quite difficult
-to convince TeX to typeset copy such as the chess "win, draw, loss"
-notation [something like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$",
-which would mean 3 wins, 4 draws and 5 losses.  The difficulty is
-persuading TeX to treat the equals sign and the minus sign as unary
-operators].
+TeX recognises this and typesets $+1$ differently from $1+1$.  It is
+in fact quite difficult to convince TeX to typeset copy such as the
+chess "win, draw, loss" notation [something like "$\mathord{+}3\
+\mathord{=}4\ \mathord{-}5$", which would mean 3 wins, 4 draws and 5
+losses.  The difficulty is persuading TeX to treat the equals sign and
+the minus sign as unary operators].
 
 For binary operators `*` and `/` we have slightly different rules
 under RStudio:
 
+<div class="col2">
 ```
 1: 2*2   ✅
 2: 2 * 2 ✅
 ```
+</p><div class="col-break"></div><p>
+I am equally happy with these in isolation.
+<br><br></p></div>
 
 [it is probably worth pointing out here that `2* 2` and `2 *2` draw
 warnings about "inconsistent spacing"].  I have no preference here
 either.
+<br><br></div>
 
 For something like `-a*b`, though, it doesn't matter whether we parse
 this as `(-a)*b` or `-(a*b)`, for both are equivalent to `(-1)*a*b`
