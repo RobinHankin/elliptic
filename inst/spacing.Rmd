@@ -46,7 +46,41 @@ to convince TeX to typeset copy such as the chess "win, draw, loss"
 notation [something like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$",
 which would mean 3 wins, 4 draws and 5 losses.  The difficulty is
 persuading TeX to treat the equals sign and the minus sign as unary
-operators].  So what happens if we want to multiply by negative number?
+operators].
+
+For something like `-a*b`, though, it doesn't matter whether we parse
+this as `(-a)*b` or `-(a*b)`, for both are equivalent to `(-1)*a*b`
+and associativity ensures that the two interpretations are identical.
+This is not the case for powers, and the simplest example would be
+`-1^2`.  This is parsed as `-(1^2)`:
+
+
+```{r minusonesquared}
+-1^2
+```
+
+This complicates the issue of spacing, at least if we are not going to
+use parentheses:
+
+```
+1: -1^2    ✅
+2: - 1^2   ❌
+3: -1 ^ 2  ✅
+4: - 1 ^ 2 ❌
+```
+
+Above, option 3 is definitely wrong.  I would actually go for option 2
+here, as this makes it clear that that `1^2` is a unit.  The issue is
+at least somewhat less ambiguous if we consider binary minus:
+
+```
+1: 1-2^2     ❌
+2: 1 - 2^2   ✅
+3: 1 - 2 ^ 2 ✅
+```
+
+Option 2 is the best here.  So what happens if we want to multiply a
+positive number on the left by a negative number on the right?
 
 
 ```
@@ -56,7 +90,7 @@ operators].  So what happens if we want to multiply by negative number?
 ```
 
 The minus sign is tightly bound to the 3 on the right, so option 2 is
-the best.
+the best, in agreement with RStudio.
 
 ```
 1: 1+2*3     ❌
