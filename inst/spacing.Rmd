@@ -52,9 +52,8 @@ I will start with the trivial case of unary operators:
 2: + 1 ❌
 ```
 </p><div class="col-break"></div>
-Compare unary `+` with and without a space; tidyverse approves of
-option 1 but not option 2.  This is correct IMO: unary 
-operators are tightly bound to their argument.
+Tidyverse approves of option 1 but not option 2.  This is correct IMO:
+unary operators are tightly bound to their argument.
 <br><br></p></div>
 
 TeX recognises this and typesets the space after the `+` differently
@@ -156,11 +155,11 @@ standard recommendation is for option 3, having each operator
 surrounded by spaces (but observe that option 2 draws no complaints
 from the Rstudio IDE).  However, because the precedence of `*` is
 higher than that of `+`, one generally parses `1+2*3` as `1 + (2*3)`,
-so my preference would be 2. One wants the tightly-bound expression,
-`2*3`, to be visually perceived as an isolated chunk that, although it
-has some internal structure, is to be considered as a unit. This
-echoes the use of radicals in chemistry; for example, methanol is
-described as CH<sub>3</sub>OH [rather than, for example,
+so my preference would be option 2. One wants the tightly-bound
+expression, `2*3`, to be visually perceived as an isolated chunk that,
+although it has some internal structure, is to be considered as a
+unit. This echoes the use of radicals in chemistry; for example,
+methanol is described as CH<sub>3</sub>OH [rather than, for example,
 CH<sub>4</sub>O] because the OH radical often behaves as a discrete
 and object that is difficult to split into an O and an H.  The fact
 that it is actually composed of one atom of oxygen and one of hydrogen
@@ -235,7 +234,7 @@ against RStudio's advice.
 2: c(a=1, b=2)     ❌
 3: c(a=1 , b=2)    ❌
 4: c(a = 1,b = 2)  ✅
-4: c(a = 1, b = 2) ✅
+5: c(a = 1, b = 2) ✅
 ```
 </p><div class="col-break"></div><br>
 We see, interestingly, that a space after a comma is not
@@ -264,44 +263,14 @@ Mixing complex arguments and longer variable names is also problematic:
 
 
 <div class="col2"><p>
-```{r, eval=FALSE, echo=TRUE, asis=TRUE}
-1: J(2.3+0.23i,use.theta=TRUE)
-2: J(2.3+0.23i, use.theta=TRUE)
-3: J(2.3 + 0.23i, use.theta = TRUE)
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}      
+1: c(2.3+0.23i,long_argument=TRUE)      ❌
+2: c(2.3+0.23i, long_argument=TRUE)     ❌
+3: c(2.3 + 0.23i, long_argument = TRUE) ✅
 ```
 </p><div class="col-break"></div><br>
 I prefer version `2`.  I think that `2.3+0.23i` is a unit, and
-`use.theta=TRUE` is a unit.
+`long_argument=TRUE` is a unit, both being about equally tightly
+bound.
 <br><br></p></div>
 
-```
-1:  seq(from=1+0.7i,to=-2+1i,len=20)
-2:  seq(from=1+0.7i, to=-2+1i, len=20)
-3:  seq(from = 1+0.7i, to = -2+1i, len=20)
-4:  seq(from = 1+0.7i, to = -2+1i, len = 20)
-5:  seq(from = 1 + 0.7i, to = -2 + 1i, len = 20)
-```
-
-
-```
-1: as.primitive(c(3+5i,2+3i))
-2: as.primitive(c(3+5i, 2+3i))
-3: as.primitive(c(3 + 5i, 2 + 3i))
-```
-
-Above, I prefer "2:"
-
-
-```
--as.primitive(c(3+5i,2+3i),n=5)
-+as.primitive(c(3+5i, 2+3i))
-+as.primitive(c(3+5i, 2+3i), n = 5)
- 
- ##Rounding error:
--is.primitive(c(1,1i))
-+is.primitive(c(1, 1i))
- 
- ## Try
-- is.primitive(c(1,1.001i))
-+ is.primitive(c(1, 1.001i))
-```
