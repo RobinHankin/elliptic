@@ -22,7 +22,6 @@ knitr::opts_chunk$set(echo = TRUE)
   }
 </style>
 
-operators are tightly bound to their argument.<br><br>  </div>
 
 When you are expressing mathematical ideas on paper, you want the
 appearance of what you write to be easy to understand mathematically.
@@ -80,7 +79,6 @@ I am equally happy with these in isolation.
 [it is probably worth pointing out here that `2* 2` and `2 *2` draw
 warnings about "inconsistent spacing"].  I have no preference here
 either.
-<br><br></div>
 
 For something like `-a*b`, though, it doesn't matter whether we parse
 this as `(-a)*b` or `-(a*b)`, for both are equivalent to `(-1)*a*b`
@@ -96,41 +94,59 @@ This is not the case for powers, and the simplest example would be
 This complicates the issue of spacing, at least if we are not going to
 use parentheses:
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: -1^2    ✅
 2: - 1^2   ❌
 3: -1 ^ 2  ✅
 4: - 1 ^ 2 ❌
 ```
+</p><div class="col-break"></div><br>
+Option 3 is definitely wrong, because it is visually parsed as
+`(-1)^2`.  I would actually go for option 2 here, as this makes it
+clear that that `1^2` is a unit.
+<br><br></p></div>
 
-Above, option 3 is definitely wrong.  I would actually go for option 2
-here, as this makes it clear that that `1^2` is a unit.  The issue is
-at least somewhat less ambiguous if we consider binary minus:
+The issue is at least somewhat less ambiguous if we consider binary
+minus:
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 1-2^2     ❌
 2: 1 - 2^2   ✅
 3: 1 - 2 ^ 2 ✅
 ```
+</p><div class="col-break"></div><br>
+Option 2 is the best here, emphasising the tightly-bound `2^2`.
+<br><br></p></div>
 
-Option 2 is the best here.  So what happens if we want to multiply a
-positive number on the left by a negative number on the right?
+So what happens if we want to multiply a positive number on the left
+by a negative number on the right?
 
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 2*-3    ❌
 2: 2 * -3  ✅
 3: 2 * - 3 ❌
 ```
+</p><div class="col-break"></div><br>
+The minus sign is tightly bound to the 3 on the right, so option
+2 is the best, in agreement with RStudio.
+<br><br></p></div>
 
-The minus sign is tightly bound to the 3 on the right, so option 2 is
-the best, in agreement with RStudio.
+We can now start thinking about the fact that `*` has higher priority
+than `+`:
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 1+2*3     ❌
 2: 1 + 2*3   ✅
 3: 1 + 2 * 3 ✅
 ```
+</p><div class="col-break"></div><br>
+Again, option 2 is the best, emphaising the unit `2*3`.
+<br><br></p></div>
 
 In passing, note that `1+2 * 3` is **definitely wrong**: as a general
 rule, spacing around an operator should indicate low precedence for
@@ -150,87 +166,113 @@ and object that is difficult to split into an O and an H.  The fact
 that it is actually composed of one atom of oxygen and one of hydrogen
 is often irrelevant if not actively misleading.
 
-```
+How might this reasoning be affected if the final number is negative?
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 1+2*-3     ❌
 2: 1 + 2 * -3 ✅
 ```
-
-Above we see a preference for spaces which is technically OK but
+</p><div class="col-break"></div><br>
+We see Rstudio's preference for spaces which is technically OK but
 frankly I would prefer brackets here and would plump for `1 + 2*(-3)`
+<br><br></p></div>
 
-```
+
+And now we can consider three different binary operators with
+different priorities:
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 1+2*3^4       ❌
 2: 1 + 2*3^4     ✅
 3: 1 + 2 * 3^4   ✅
 4: 1 + 2 * 3 ^ 4 ✅
 ```
-
-Above, my preference would be option 3, as the `3^4` is the highest
+</p><div class="col-break"></div><br>
+My preference would be option 3, as the `3^4` is the highest
 priority.  However, it is entirely reasonably to view `2*3^4` as an
-indivisible entity, and if so then option 2 would be the best.  If we
-change the sign of the 4 then other issues arise:
+indivisible entity, and if so then option 2 would be the best.
+<br><br></p></div>
 
-```
+If we change the sign of the 4 then other issues arise:
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: 1+2*3^-4        ❌
 2: 1 + 2*3^-4      ✅
 3: 1 + 2 * 3^-4    ✅
 4: 1 + 2 * 3 ^ -4  ✅
 5: 1 + 2 * 3 ^ - 4 ❌
 ```
-
-Above, we should be explicit that a unary operator does not require a
+</p><div class="col-break"></div><br>
+we should be explicit that a unary operator does not require a
 space after it (`+ 3` looks *terrible*; option 5 is an abomination).
 Rstudio complains about options 1 and 5.  My favourite would be 3.
-Now let's think about parentheses:
+<br><br></p></div>
 
+Now let's think about parentheses.  The whole point of parentheses is
+to subvert the standard arithmetic rules of precedence.
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: (1+2)*3     ❌
 2: (1 + 2)*3   ✅
 3: (1+2) * 3   ❌
 4: (1 + 2) * 3 ✅
 ```
+</p><div class="col-break"></div><br>
+Option 3 would be the best, as `1+2` is the most tightly bound
+expression.  Options 2 and 4, having the space around `+`, are poor
+because they distract from this.  I would go for option 3 here,
+against RStudio's advice.
+<br><br></p></div>
 
-The whole point of parentheses is to subvert the standard arithmetic
-rules of precedence.  If so, option 3 would be the best, as `1+2` is
-the most tightly bound expression.  Options 2 and 4, having the space
-around `+`, are poor because they distract from this.  I would go for
-option 3 here, against RStudio's advice.
 
-
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: c(a=1,b=2)      ❌
 2: c(a=1, b=2)     ❌
 3: c(a=1 , b=2)    ❌
 4: c(a = 1,b = 2)  ✅
 4: c(a = 1, b = 2) ✅
 ```
-
-Above we see, interestingly, that a space after a comma is not
+</p><div class="col-break"></div><br>
+We see, interestingly, that a space after a comma is not
 required for RStudio approval.  I believe that the atoms of this
 expression are `a=1` and `b=2` so there should be no space around the
 equals sign.  I am split between options 2 and 3 on this one.
+<br><br></p></div>
 
+The issue of complex numbers is interesting here.
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
+1: c(a=1,b=2+3i)      ❌
+2: c(a=1, b=2+3i)     ❌
+3: c(a=1 , b=2+3i)    ❌
+4: c(a = 1,b = 2+3i)  ✅
+5: c(a = 1, b = 2+3i) ✅
 ```
-1: c(a=1,b=2+3i)   ❌
-2: c(a=1, b=2)     ❌
-3: c(a=1 , b=2)    ❌
-4: c(a = 1,b = 2)  ✅
-4: c(a = 1, b = 2) ✅
-```
+</p><div class="col-break"></div><br>
+`2+3i` is more tightly bound than `a=1` so I think that a space around
+the second `=` is needed here.  Option 5.
+<br><br></p></div>
 
 
+Mixing complex arguments and longer variable names is also problematic:
 
 
-```
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
 1: J(2.3+0.23i,use.theta=TRUE)
 2: J(2.3+0.23i, use.theta=TRUE)
 3: J(2.3 + 0.23i, use.theta = TRUE)
 ```
-
-Above, I prefer version `2`.  I think that `2.3+0.23i` is a unit, and
+</p><div class="col-break"></div><br>
+I prefer version `2`.  I think that `2.3+0.23i` is a unit, and
 `use.theta=TRUE` is a unit.
-
+<br><br></p></div>
 
 ```
 1:  seq(from=1+0.7i,to=-2+1i,len=20)
