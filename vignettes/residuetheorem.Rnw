@@ -1,3 +1,4 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
 \documentclass[nojss]{jss}
 
 \usepackage{dsfont}
@@ -11,6 +12,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 %% just as usual
 \author{Robin K. S. Hankin}
 \title{The residue theorem from a numerical perspective}
@@ -18,6 +20,12 @@
 %% for pretty printing and a nice hypersummary also set:
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
 \Plaintitle{The residue theorem from a numerical perspective}
+
+
+%% for pretty printing and a nice hypersummary also set:
+\Plainauthor{Robin K. S. Hankin}
+
+%% an abstract and keywords
 
 %% an abstract and keywords
 \Abstract{A short vignette illustrating Cauchy's integral theorem
@@ -32,10 +40,43 @@
   Scotland\\
   E-mail: \email{hankin.robin@gmail.com}
 }
+   
+\Keywords{Elliptic functions, residue theorem, numerical integration, \proglang{R}}
+\Plainkeywords{Elliptic functions, residue theorem, numerical integration, R}
+
+%% publication information
+%% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
+%% If it was not (yet) accepted, leave them commented.
+% \Volume{VOL}
+% \Issue{ISS}
+% \Month{MONTH}
+% \Year{YEAR}
+% \Submitdate{yyyy-mm-dd}
+% \Acceptdate{yyyy-mm-dd}
+% \Repository{https://doi.org/10.9999/nonexistent-article}
+
+%% The address of (at least) one author should be given
+%% in the following format:
+\Address{
+  Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+  University of Stirling\\
+  Scotland\\
+  E-mail: \email{hankin.robin@gmail.com}
+}
 
 
+%% It is also possible to add a telephone and fax number
+%% before the e-mail in the following format:
+%% Telephone: +43/1/31336-5053
+%% Fax: +43/1/31336-734
+
+%% for those who use Sweave please include the following line (with % symbols):
 %% need no \usepackage{Sweave.sty}
+
+%% end of declarations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
+
 
 
 <<requirepackage,echo=FALSE,print=FALSE>>=
@@ -174,7 +215,7 @@ abs(numerical-exact)
 
 which is unreasonably accurate, IMO.
 
-
-
 \bibliography{elliptic}
 \end{document}
+
+
