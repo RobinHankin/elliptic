@@ -34,13 +34,6 @@
   contour integration, complex integration, Cauchy's theorem}
 
 
-\Address{
-  Robin K. S. Hankin\\
-  University of Stirling\\
-  Scotland\\
-  E-mail: \email{hankin.robin@gmail.com}
-}
-   
 \Keywords{Elliptic functions, residue theorem, numerical integration, \proglang{R}}
 \Plainkeywords{Elliptic functions, residue theorem, numerical integration, R}
 
