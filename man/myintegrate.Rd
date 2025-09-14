@@ -20,9 +20,9 @@
   (\dQuote{\code{residuetheorem}}) is provided in the package.
 }
 \usage{
-myintegrate(f, lower,upper, ...)
-integrate.contour(f,u,udash, ...)
-integrate.segments(f,points, close=TRUE, ...)
+myintegrate(f, lower, upper, ...)
+integrate.contour(f, u, udash, ...)
+integrate.segments(f, points, close=TRUE, ...)
 residue(f, z0, r, O=z0, ...)
 }
 \arguments{
