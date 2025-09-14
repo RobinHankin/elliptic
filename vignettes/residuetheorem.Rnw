@@ -4,13 +4,14 @@
 \usepackage{dsfont}
 \usepackage{bbm}
 \usepackage{amsfonts}
+\usepackage{amsmath}
 \usepackage{wasysym}
 \usepackage{wrapfig}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %% just as usual
@@ -27,9 +28,11 @@
 
 %% an abstract and keywords
 
-%% an abstract and keywords
-\Abstract{A short vignette illustrating Cauchy's integral theorem
-  using numerical integration}
+\Abstract{Here I use the {\tt myintegrate()} function of the
+\pkg{elliptic} package to illustrate three classical theorems from
+analysis: Cauchy's integral theorem, the residue theorem, and Cauchy's
+integral formula.}
+
 \Keywords{Residue theorem, Cauchy formula, Cauchy's integral formula,
   contour integration, complex integration, Cauchy's theorem}
 
@@ -70,8 +73,6 @@
 
 \begin{document}
 
-
-
 <<requirepackage,echo=FALSE,print=FALSE>>=
 require(elliptic,quietly=TRUE)
 @ 
@@ -83,8 +84,73 @@ require(elliptic,quietly=TRUE)
 \end{center}
 \end{wrapfigure}
 
+\section{Introduction}
 
-In this very short vignette, I will use contour integration to evaluate
+Cauchy's integral theorem and its corollaries are some of the most
+startling and fruitful ideas in the whole of mathematics.  They place
+powerful constraints on analytical functions; and show that a
+function's local behaviour dictates its global properties.
+Cauchy's integral theorem may be used to prove the residue theorem and
+Cauchy's integral formula; these three theorems form a powerful and
+cohesive suite of results.
+
+In this short document I use numerical methods to illustrate and
+highlight some of their consequences for complex analysis.
+
+\subsection{Cauchy's integral theorem}.
+
+Augustin-Louis Cauchy proved an early version of the integral theorem
+in 1814; it required that the function's derivative was continuous.
+This assumption was removed in 1900 by \'Edouard Goursat at the
+expense of a more difficult proof; the result is sometimes known as
+the Cauchy-Goursat theorem and is now a cornerstone of complex analysis.
+Formally, in modern notation, we have:
+
+\noindent {\bf Cauchy's integral theorem}.  If $f(z)$ is holomorphic
+in a simply connected domain $\Omega\subset\mathbb{C}$, then for any
+closed contour $C$ in $\Omega$,
+
+$$\int_{C}f(z)\,dz=0.$$
+\\
+
+To demonstrate this theorem numerically, I will use the integration
+suite of functions provided with the \pkg{elliptic} package which
+perform complex integration of a function along a path specified
+either as a sequence of segments [{\tt integrate.segments()}] or a
+curve [{\tt integrate.contour()}].  
+
+Let us consider $f(z)=\exp z$, holomorphic over all of $\mathbb{C}$,
+and evaluate
+
+$$\oint_C f(z)\,dz$$
+
+where $C$ is the square $0\longrightarrow 1\longrightarrow
+  1+i\longrightarrow i\longrightarrow 0$.
+
+\subsection{The residue theorem}
+
+{\bf residue theorem}.  Given $U$, a simply connected open subset of
+$\mathbb{C}$, and a finite list of points $a_1,\ldots,a_n$.
+Suppose $f(z)$ is holomorphic on $U_0=U\setminus\left\lbrace
+a_1,\ldots a_n\right\rbrace$ and $\gamma$ is a closed rectifiable
+curve in $U_0$, then
+
+$$\oint_\gamma f(z)\,dz = 2\pi i\sum_{k=1}^n
+\operatorname{I}(\gamma,a_k)\cdot\operatorname{Res}(f,a_k)$$
+
+where $\operatorname{I}(\gamma,a_k)$ is the winding number of $\gamma$
+about $a_k$ and $\operatorname{Res}(f,a_k)$ is the residue of $f$ at
+$a_k$.
+\\
+
+{\bf Cauchy's integral formula}.  If $f(z)$ is analytic within and on
+a simple closed curve $C$ (assumed to be oriented anticlockwise)
+inside a simply-connected domain, and if $z_0$ is any point inside
+$C$, then
+
+$$f(z_0)=\frac{1}{2\pi i}\int_C\frac{f(z)\,dz}{z-z_0}.$$
+
+In this short vignette, I will use contour integration to evaluate
 \begin{equation}
   \int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx
   \end{equation}
@@ -94,6 +160,21 @@ package~\citep{hankin2006}.
 If $f$ is meromorphic, the residue theorem tells us that the integral
 of~$f$ along any closed nonintersecting path, traversed anticlockwise,
 is equal to~$2\pi i$ times the sum of the residues inside it.
+
+
+
+\subsection{Numerical contour integration}
+
+
+<<>>=
+myintegrate
+@
+
+\subsection{Cauchy's integral theorem}
+
+Let us consider a holomorphic function, in this case $f(z)=\exp z$.
+
+
 
 
 \begin{figure}[htbp]
@@ -157,6 +238,12 @@ the contribution from the first integral should be small:
 answer.approximate <-
     integrate.contour(f,u1,u1dash) +
     integrate.contour(f,u2,u2dash) 
+
+
+    integrate.contour(f,u1,u1dash) 
+    integrate.contour(f,u2,u2dash) 
+
+
 @ 
 
 
