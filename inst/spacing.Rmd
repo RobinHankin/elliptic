@@ -54,22 +54,26 @@ unary operators are tightly bound to their argument.
 <br><br></p></div>
 
 TeX recognises this and typesets the space after the `+` differently
-in $+1$ and $1+1$.  It is in fact quite difficult to convince TeX to
-typeset copy such as the chess "win, draw, loss" notation [something
-like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$", which would mean 3
-wins, 4 draws and 5 losses.  The difficulty is persuading TeX to treat
-the equals sign and the minus sign as unary operators].
+in "$+1$" and "$1+1$".  It is in fact quite difficult to convince TeX
+to typeset copy such as the chess "win, draw, loss" notation
+[something like "$\mathord{+}3\ \mathord{=}4\ \mathord{-}5$", which
+would mean 3 wins, 4 draws and 5 losses.  The difficulty is persuading
+TeX to treat the equals sign and the minus sign as unary operators].
 
-For binary operators `*` and `/` we have slightly different rules
+For binary operators `+` and `*` we have slightly different rules
 under RStudio:
 
 <div class="col2">
 ```
+1: 2+2   ❌
+2: 2 + 2 ✅
 1: 2*2   ✅
 2: 2 * 2 ✅
 ```
 </p><div class="col-break"></div><p>
-I am equally happy with these in isolation.
+The mandatory spaces around `+` make sense as addition has low
+priority.  Optional spaces around `*` also make sense because of
+multiplication's having intermediate priority.
 <br><br></p></div>
 
 [it is probably worth pointing out here that `2* 2` and `2 *2` draw
@@ -302,4 +306,21 @@ I prefer version `2`.  I think that `2.3+0.23i` is a unit, and
 `long_argument=TRUE` is a unit, both being about equally tightly
 bound.
 <br><br></p></div>
+
+It's probably worth pointing out that minus operator, being
+nonassociative [that is, $a-(b-c)\neq (a-b)-c$] requires extra
+bracketing:
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}      
+1: z-1.7+3i
+2: z - 1.7+3i
+3: z - (1.7-3i)
+```
+</p><div class="col-break"></div><br>
+All three versions are algebraically identical.  Version `2` is
+*definitely wrong* as it is parsed visually as `z - (1.7+3i)`.
+<br><br></p></div>
+
+
 
