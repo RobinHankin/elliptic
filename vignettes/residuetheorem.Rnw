@@ -5,9 +5,11 @@
 \usepackage{bbm}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{wasysym}
 \usepackage{wrapfig}
-
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -125,7 +127,53 @@ and evaluate
 $$\oint_C f(z)\,dz$$
 
 where $C$ is the square $0\longrightarrow 1\longrightarrow
-  1+i\longrightarrow i\longrightarrow 0$.
+1+i\longrightarrow i\longrightarrow 0$ (figure~\ref{square}).  Numerically:
+
+\begin{figure}\centering
+\begin{tikzpicture}
+% Axes
+\draw [help lines,->] (-1,  0) -- (2, 0);
+\draw [help lines,->] ( 0, -1) -- (0, 2);
+% Red path
+
+\begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ] 
+    \draw[red,postaction={decorate}] (0,0)--(1,0) node[black, midway, below]{\tiny A};
+    \draw[red,postaction={decorate}] (1,0)--(1,1) node[black, midway, right]{\tiny B};
+    \draw[red,postaction={decorate}] (1,1)--(0,1) node[black, midway, above]{\tiny C};
+    \draw[red,postaction={decorate}] (0,1)--(0,0) node[black, midway,  left]{\tiny D};
+\end{scope}
+% The labels
+\node at ( 1.70, -0.2){$x$ };
+\node at (-0.24,  1.7){$iy$};
+
+\end{tikzpicture}
+\caption{A square contour integral \label{square} on the complex plane}
+\end{figure}
+
+<<>>=
+integrate.segments(exp, c(0, 1, 1+1i, 1i), close=TRUE)
+@ 
+
+Above we see that the result is zero (to within numerical precision),
+in agreement with the integral theorem.  It is interesting to consider
+each leg separately.  We have
+
+$$
+A=e-1\qquad B=e(e^i-1)\qquad C=-e^i(e-1)\qquad D=-(e^i-1)
+$$
+
+And taking B as an example:
+
+<<>>=
+analytic <- exp(1)*(exp(1i)-1)
+numeric  <- integrate.segments(exp, c(1, 1+1i), close=FALSE)
+c(analytic=analytic, numeric=numeric, difference=analytic-numeric)
+@ 
+
+showing agreement to within numerical precision.
 
 \subsection{The residue theorem}
 
@@ -133,49 +181,52 @@ where $C$ is the square $0\longrightarrow 1\longrightarrow
 $\mathbb{C}$, and a finite list of points $a_1,\ldots,a_n$.
 Suppose $f(z)$ is holomorphic on $U_0=U\setminus\left\lbrace
 a_1,\ldots a_n\right\rbrace$ and $\gamma$ is a closed rectifiable
-curve in $U_0$, then
+curve in $U_0$.  Then
 
 $$\oint_\gamma f(z)\,dz = 2\pi i\sum_{k=1}^n
 \operatorname{I}(\gamma,a_k)\cdot\operatorname{Res}(f,a_k)$$
 
 where $\operatorname{I}(\gamma,a_k)$ is the winding number of $\gamma$
 about $a_k$ and $\operatorname{Res}(f,a_k)$ is the residue of $f$ at
-$a_k$.
-\\
+$a_k$.  \\
 
-{\bf Cauchy's integral formula}.  If $f(z)$ is analytic within and on
-a simple closed curve $C$ (assumed to be oriented anticlockwise)
-inside a simply-connected domain, and if $z_0$ is any point inside
-$C$, then
-
-$$f(z_0)=\frac{1}{2\pi i}\int_C\frac{f(z)\,dz}{z-z_0}.$$
-
-In this short vignette, I will use contour integration to evaluate
-\begin{equation}
-  \int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx
-  \end{equation}
-using numerical methods.  This document is part of the \pkg{elliptic}
-package~\citep{hankin2006}. 
-
-If $f$ is meromorphic, the residue theorem tells us that the integral
-of~$f$ along any closed nonintersecting path, traversed anticlockwise,
-is equal to~$2\pi i$ times the sum of the residues inside it.
-
-
-
-\subsection{Numerical contour integration}
-
+The canonical, and simplest, application of this is to derive the log
+function by integrating $f(z)=1/z$ along the unit circle, as per
+figure \ref{circular}.  Here the residue at the origin is 1, so the
+integral round the unit circle is, analytically, $2\pi i$.
+Numerically:
 
 <<>>=
-myintegrate
-@
+u     <- function(x){exp(pi*2i*x)}
+udash <- function(x){pi*2i * exp(pi*2i*x)}
 
-\subsection{Cauchy's integral theorem}
+analytic <- pi*2i
+numeric  <- integrate.contour(function(z){1/z}, u, udash)
+c(analytic=analytic, numeric=numeric, difference=analytic-numeric)
+@ 
 
-Let us consider a holomorphic function, in this case $f(z)=\exp z$.
 
 
+\begin{figure}\centering
+\begin{tikzpicture}
+% Axes
+\draw [help lines,->] (-2,  0) -- (2, 0);
+\draw [help lines,->] ( 0, -2) -- (0, 2);
 
+% Red path
+
+\draw [
+  decoration = {markings, mark = at position 0 with {\arrow{>}}},
+  postaction = {decorate},
+  very thick, red] (0,0) circle (1cm);
+
+% The labels
+\node at ( 1.70, -0.2){$x$ };
+\node at (-0.24,  1.7){$iy$};
+
+\end{tikzpicture}
+\caption{A circular contour integral \label{circular} on the complex plane}
+\end{figure}
 
 \begin{figure}[htbp]
   \begin{center}
@@ -187,10 +238,12 @@ Let us consider a holomorphic function, in this case $f(z)=\exp z$.
   \end{center}
 \end{figure}
 
-To evaluate the integral above, we define
-$f(z)=\frac{e^{iz}}{1+z^2}$. Then we take a semicircular path~$P$ from
-$-R$ to $+R$ along the real axis, then following a semicircle in the
-upper half plane, of radius $R$ to close the loop
+again we see very close agreement.  I will now use contour integration
+to evaluate $\int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx$ in
+different ways using numerical methods.  Writing
+$f(z)=\frac{e^{iz}}{1+z^2}$, we take a semicircular path~$P$ from $-R$
+to $+R$ along the real axis, then following a semicircle in the upper
+half plane, of radius $R$ to close the loop
 (figure~\ref{semicircular_path}).  Now we make~$R$ large.  Then~$P$
 encloses a pole at~$i$ [there is one at $-i$ also, but this is outside
   $P$, so irrelevent here] at which the residue is~$-i/2e$.  Thus
@@ -203,47 +256,29 @@ along~$P$; the contribution from the semicircle tends to zero
 as~$R\longrightarrow\infty$; thus the integral along the real axis is
 the whole path integral, or~$\pi/e$.
 
-We can now reproduce this result analytically.  First, choose $R$:
+We can now reproduce this result numerically.  First, choose a large
+value of $R$:
 
 <<chooseR>>=
 R <- 400
 @ 
 
-
-And now define a path~$P$.  First, the semicircle:
+And now define a path~$P$:
 
 <<definesemi>>=
-u1     <- function(x){R*exp(pi*1i*x)}
-u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}
-@ 
-
-and now the straight part along the real axis:
-
-<<straightpart>>=
-u2     <- function(x){R*(2*x-1)}
-u2dash <- function(x){R*2}
-@ 
-
-And  define the function:
-
-<<>>=
-f <- function(z){exp(1i*z)/(1+z^2)}
+u1     <- function(x){R*exp(pi*1i*x)}        # semicircle
+u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}  # derivative
+u2     <- function(x){R*(2*x-1)}             # real axis
+u2dash <- function(x){R*2}                   # derivative
 @ 
 
 Now carry out the path integral.  I'll do it explicitly, but note that
-the contribution from the first integral should be small:
+the contribution from the semicircle should be small:
 
-
-<<ansapp>>=
-answer.approximate <-
-    integrate.contour(f,u1,u1dash) +
-    integrate.contour(f,u2,u2dash) 
-
-
-    integrate.contour(f,u1,u1dash) 
-    integrate.contour(f,u2,u2dash) 
-
-
+<<>>=
+f <- function(z){exp(1i*z)/(1+z^2)}
+(I1 <- integrate.contour(f,u1,u1dash))   # semicircle; results should be small
+(I2 <- integrate.contour(f,u2,u2dash))   # real axis
 @ 
 
 
@@ -251,49 +286,73 @@ And compare with the analytical value:
 
 <<compareans>>=
 answer.exact <- pi/exp(1)
+answer.approximate <- I1 + I2  # semicircle + real axis
 abs(answer.approximate - answer.exact)
 @ 
 
-Now try the same thing but integrating over a triangle instead of a
-semicircle, using {\tt integrate.segments()}.  Use a path $P'$ with
-base from $-R$ to $+R$ along the real axis, closed by two straight
-segments, one from $+R$ to $iR$, the other from $iR$ to $-R$:
-
- 
-<<>>=
-abs(integrate.segments(f,c(-R,R,1i*R))- answer.exact)
-@  
- 
-
-Observe how much better one can do by integrating over a big square
-instead:
-
+Above we see that the numerical method has produced a value close to
+the analytical result.  But, observe how much better one can do by
+integrating over a big square instead:
 
 <<useabigsquare>>=
-abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R))- answer.exact)
+abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R)) - answer.exact)
 @ 
 
+\subsection{Cauchy's integral formula}
 
-\subsection*{The residue theorem for function evaluation}
+{\bf Cauchy's integral formula}.  If $f(z)$ is analytic within and on
+a simple closed curve $C$ (assumed to be oriented anticlockwise)
+inside a simply-connected domain, and if $z_0$ is any point inside
+$C$, then
 
-If $f(\cdot)$ is holomorphic within~$C$, Cauchy's
-residue theorem states that
-\begin{equation}
-  \oint_C\frac{f(z)}{z-z_0} = f(z_0).
-  \end{equation}
+$$f(z_0)=\frac{1}{2\pi i}\int_C\frac{f(z)\,dz}{z-z_0}.$$
 
-Function \code{residue()} is a wrapper that takes a function~$f(z)$
-and integrates~$f(z)/\left(z-z_0\right)$ around a closed loop which
-encloses~$z_0$.  We can test this numerically by evaluating $\sin(1)$:
 
-<<residuetest>>=
-f <- function(z){sin(z)}
-numerical <- residue(f,z0=1,r=1)
-exact <- sin(1)
-abs(numerical-exact)
+We may use this to evaluate the Gauss hypergeometric function at a
+critical point.  The Gauss hypergeometric function ${}_2F_1(a,b;c;z)$
+is defined as
+
+$$1+\frac{ab}{c}\frac{z}{1!} + \frac{a(a+1)b(b+1)}{c(c+1)}\frac{z^2}{2!}+\cdots$$
+
+Now, this series has a radius of convergence of
+1~\citep{abramowitz1965}; but the function is defined over the whole
+complex plane by analytic continuation~\citep{buhring1987}.  The
+\pkg{hypergeo} package~\citep{hankin2006} evaluates ${}_2F_1(a,b;c;z)$
+for different values of $z$ by applying a sequence of transformations
+to reduce $\left|z\right|$ to its minimum value; however, this process
+is ineffective for $z=\frac{1}{2}\pm i\sqrt{3}/2$, these points
+transforming to themselves.  Numerically:
+
+<<showhypergeofail>>=
+library("hypergeo")
+z0 <- 1/2 + sqrt(3)/2i
+f <- function(z){hypergeo_powerseries(1/2, 1/3, 1/5, z)}
+f(z0)
+@
+
+Above we see {\tt NA}, signifying failure to converge.  However, the
+residue theorem may be used to evaluate ${}_2F_1$ at this point:
+
+<<>>=
+r <- 0.1 # radius of contour
+u <- function(x){z0 + r*exp(pi * 2i * x)}
+udash <- function(x){r * pi * (0+2i) * exp(pi * 2i * x)}
+(val_residue <- integrate.contour(function(z){f(z) / (z-z0)}, u, udash) / (pi*2i))
 @ 
 
-which is unreasonably accurate, IMO.
+We can compare this value with that obtained by a more sophisticated
+[and computationally expensive] method, that of
+Gosper~\citep{hankin2006}:
+
+<<>>=
+(val_gosper <- hypergeo_gosper(1/2, 1/3, 1/5, z0))
+abs(val_gosper - val_residue)
+@ 
+
+Above we see reasonable numerical agreement.
+
+
+\section{Conclusions}
 
 \bibliography{elliptic}
 \end{document}
