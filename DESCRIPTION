@@ -4,7 +4,7 @@ Title: Weierstrass and Jacobi Elliptic Functions
 Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
 Depends: R (>= 2.5.0)
 Imports: MASS
-Suggests: emulator, calibrator (>= 1.2-8), testthat
+Suggests: emulator, calibrator (>= 1.2-8), testthat, hypergeo
 SystemRequirements: pari/gp
 Description: 
  A suite of elliptic and related functions including Weierstrass and
