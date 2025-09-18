@@ -1,0 +1,184 @@
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
+\documentclass[nojss]{jss}
+
+\usepackage{dsfont}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% declarations for jss.cls %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% just as usual
+\author{Robin K. S. Hankin}
+\title{The residue theorem for $\int_{\infty}^{\infty}\frac{e^{ix}dx}{1+x^2}$ from a numerical perspective}
+%\VignetteIndexEntry{The residue theorem from a numerical perspective}
+%% for pretty printing and a nice hypersummary also set:
+%% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
+\Plaintitle{The residue theorem from a numerical perspective}
+
+
+%% for pretty printing and a nice hypersummary also set:
+\Plainauthor{Robin K. S. Hankin}
+
+%% an abstract and keywords
+
+\Abstract{Here I use the {\tt myintegrate()} function of the
+  \pkg{elliptic} package to discuss the use of the residue theorem
+  from a numerical perspective.  I use different techniques to
+  evaluate $\int_{\infty}^{\infty}\frac{e^{ix}dx}{1+x^2}$ and show how
+  the error may be reduced by the use of different contours.
+}
+
+
+\Keywords{Residue theorem, Cauchy formula, Cauchy's integral formula,
+  contour integration, complex integration, Cauchy's theorem}
+
+
+\Keywords{Elliptic functions, residue theorem, numerical integration, \proglang{R}}
+\Plainkeywords{Elliptic functions, residue theorem, numerical integration, R}
+
+%% publication information
+%% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
+%% If it was not (yet) accepted, leave them commented.
+% \Volume{VOL}
+% \Issue{ISS}
+% \Month{MONTH}
+% \Year{YEAR}
+% \Submitdate{yyyy-mm-dd}
+% \Acceptdate{yyyy-mm-dd}
+% \Repository{https://doi.org/10.9999/nonexistent-article}
+
+%% The address of (at least) one author should be given
+%% in the following format:
+\Address{
+  Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+  University of Stirling\\
+  Scotland\\
+  E-mail: \email{hankin.robin@gmail.com}
+}
+
+
+%% It is also possible to add a telephone and fax number
+%% before the e-mail in the following format:
+%% Telephone: +43/1/31336-5053
+%% Fax: +43/1/31336-734
+
+%% for those who use Sweave please include the following line (with % symbols):
+%% need no \usepackage{Sweave.sty}
+
+%% end of declarations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+<<requirepackage,echo=FALSE,print=FALSE>>=
+require(elliptic,quietly=TRUE)
+@ 
+
+\setlength{\intextsep}{0pt}
+\begin{wrapfigure}{r}{0.2\textwidth}
+\begin{center}
+\includegraphics[width=1in]{\Sexpr{system.file("help/figures/elliptic.png",package="elliptic")}}
+\end{center}
+\end{wrapfigure}
+
+In this short document, I use contour integration to evaluate
+$\int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx$ in different ways
+using numerical methods.  Writing $f(z)=\frac{e^{iz}}{1+z^2}$, we take
+a semicircular path~$P$ from $-R$ to $+R$ along the real axis, then
+following a semicircle in the upper half plane, of radius $R$ to close
+the loop (figure~\ref{semicircular_path}).  Now we make~$R$ large.
+Then~$P$ encloses a pole at~$i$ [there is one at $-i$ also, but this
+  is outside $P$, so irrelevent here] at which the residue is~$-i/2e$.
+Thus
+
+\begin{equation}
+  \oint_P f(z)\,dz=2\pi i\cdot(-i/2e) = \pi/e.
+\end{equation}
+  
+Theq contribution from the semicircle tends to zero
+as~$R\longrightarrow\infty$; thus the integral along the real axis is
+the whole path integral, or~$\pi/e$.  We can now reproduce this result
+numerically.  First, choose a large value of $R$:
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics{semicircular_path.pdf}
+    \caption{Contour\label{semicircular_path} integration path
+      from~$(-R,0)$ to~$(R,0)$ along the real axis, followed by a
+      semicircular return path in the positive imaginary half-plane.
+      Poles of~$e^{ix}/\left(1+x^2\right)$ symbolised by explosions}
+  \end{center}
+\end{figure}
+
+
+<<chooseR>>=
+R <- 400
+@ 
+
+And now define a path~$P$:
+
+<<definesemi>>=
+u1     <- function(x){R*exp(pi*1i*x)}        # semicircle
+u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}  # derivative
+u2     <- function(x){R*(2*x-1)}             # real axis
+u2dash <- function(x){R*2}                   # derivative
+@ 
+
+Now carry out the path integral.  I'll do it explicitly, but note that
+the contribution from the semicircle should be small:
+
+<<>>=
+f <- function(z){exp(1i*z)/(1+z^2)}
+(I1 <- integrate.contour(f,u1,u1dash))   # semicircle; results should be small
+(I2 <- integrate.contour(f,u2,u2dash))   # real axis
+@ 
+
+
+Above, note the smallness of the imaginary component of {\tt I1} and
+{\tt I2}.  Now we compare the numerical value {\tt I1+I2} for the
+contour integral with the analytical value:
+
+<<compareans>>=
+answer.exact <- pi/exp(1)
+answer.approximate <- I1 + I2  # semicircle + real axis
+abs(answer.approximate - answer.exact)
+@ 
+
+Above we see that the numerical method has produced a value close to
+the analytical result.  But, observe how much better one can do by
+integrating over a big square instead:
+
+<<useabigsquare>>=
+answer.square <- integrate.segments(f, c(-R, R, R+1i*R, -R+1i*R))
+abs(answer.square - answer.exact)
+@ 
+
+Above we see an improvement of over an order of magnitude.
+
+\section*{Conclusions and further work}
+
+Although the residue theorem is usually used for obtaining theoretical
+results, we see here that it may be used numerically.  We obtain
+values that have only small error due to use of a finite (but large)
+contour.  It might be interesting to investigate the error as a
+function of $R$.  Also, we observe that the integral along the return
+leg approaches zero as $R\longrightarrow\infty$, but it might be
+interesting to assess how the function behaves along the
+semicircle---or indeed the square---for a finite but large value of
+$R$.  It might be possible to construct return legs that have smaller
+errors.
+
+
+\bibliography{elliptic}
+\end{document}
+
+

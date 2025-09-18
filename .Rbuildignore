@@ -14,4 +14,8 @@ README_files/
 ^inst/elliptic_stickermaker.R$
 ^inst/spacing.Rmd$
 ^inst/spacing.Rmd$
+^inst/semicircle_contour.Rnw$
+^inst/semicircle_contour.svg$
+^inst/semicircle_contour.pdf$
+^inst/elliptic.bib$
 

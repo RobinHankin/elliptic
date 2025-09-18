@@ -228,75 +228,8 @@ c(analytic=analytic, numeric=numeric, difference=analytic-numeric)
 \caption{A circular contour integral \label{circular} on the complex plane}
 \end{figure}
 
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics{semicircular_path.pdf}
-    \caption{Contour\label{semicircular_path} integration path
-      from~$(-R,0)$ to~$(R,0)$ along the real axis, followed by a
-      semicircular return path in the positive imaginary half-plane.
-      Poles of~$e^{ix}/\left(1+x^2\right)$ symbolised by explosions}
-  \end{center}
-\end{figure}
 
-again we see very close agreement.  I will now use contour integration
-to evaluate $\int_{x=-\infty}^{\infty}\frac{e^{ix}}{1+x^2}\,dx$ in
-different ways using numerical methods.  Writing
-$f(z)=\frac{e^{iz}}{1+z^2}$, we take a semicircular path~$P$ from $-R$
-to $+R$ along the real axis, then following a semicircle in the upper
-half plane, of radius $R$ to close the loop
-(figure~\ref{semicircular_path}).  Now we make~$R$ large.  Then~$P$
-encloses a pole at~$i$ [there is one at $-i$ also, but this is outside
-  $P$, so irrelevent here] at which the residue is~$-i/2e$.  Thus
-
-\begin{equation}
-  \oint_P f(z)\,dz=2\pi i\cdot(-i/2e) = \pi/e
-\end{equation}
-  
-along~$P$; the contribution from the semicircle tends to zero
-as~$R\longrightarrow\infty$; thus the integral along the real axis is
-the whole path integral, or~$\pi/e$.
-
-We can now reproduce this result numerically.  First, choose a large
-value of $R$:
-
-<<chooseR>>=
-R <- 400
-@ 
-
-And now define a path~$P$:
-
-<<definesemi>>=
-u1     <- function(x){R*exp(pi*1i*x)}        # semicircle
-u1dash <- function(x){R*pi*1i*exp(pi*1i*x)}  # derivative
-u2     <- function(x){R*(2*x-1)}             # real axis
-u2dash <- function(x){R*2}                   # derivative
-@ 
-
-Now carry out the path integral.  I'll do it explicitly, but note that
-the contribution from the semicircle should be small:
-
-<<>>=
-f <- function(z){exp(1i*z)/(1+z^2)}
-(I1 <- integrate.contour(f,u1,u1dash))   # semicircle; results should be small
-(I2 <- integrate.contour(f,u2,u2dash))   # real axis
-@ 
-
-
-And compare with the analytical value:
-
-<<compareans>>=
-answer.exact <- pi/exp(1)
-answer.approximate <- I1 + I2  # semicircle + real axis
-abs(answer.approximate - answer.exact)
-@ 
-
-Above we see that the numerical method has produced a value close to
-the analytical result.  But, observe how much better one can do by
-integrating over a big square instead:
-
-<<useabigsquare>>=
-abs(integrate.segments(f,c(-R,R,R+1i*R, -R+1i*R)) - answer.exact)
-@ 
+again we see very close agreement.
 
 \subsection{Cauchy's integral formula}
 
