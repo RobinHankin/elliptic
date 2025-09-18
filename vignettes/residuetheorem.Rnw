@@ -102,7 +102,7 @@ cohesive suite of results.
 In this short document I use numerical methods to illustrate and
 highlight some of their consequences for complex analysis.
 
-\subsection{Cauchy's integral theorem}.
+\subsection{Cauchy's integral theorem}
 
 Augustin-Louis Cauchy proved an early version of the integral theorem
 in 1814; it required that the function's derivative was continuous.
