@@ -18,7 +18,7 @@
 
 %% just as usual
 \author{Robin K. S. Hankin}
-\title{The residue theorem from a numerical perspective}
+\title{Cauchy's integral theorem: a numerical perspective}
 %\VignetteIndexEntry{The residue theorem from a numerical perspective}
 %% for pretty printing and a nice hypersummary also set:
 %% \Plainauthor{Achim Zeileis, Second Author} %% comma-separated
@@ -286,6 +286,11 @@ Above we see reasonable numerical agreement.
 
 
 \section{Conclusions}
+
+The \pkg{elliptic} package includes a suite of functionality for
+complex integration using numerical methods and these are used to
+demonstrate Cauchy's integral theorem, the residue theorem, and
+Cauchy's integral formula.  Numerical errors are generally small.
 
 \bibliography{elliptic}
 \end{document}
