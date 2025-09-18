@@ -250,7 +250,7 @@ $$1+\frac{ab}{c}\frac{z}{1!} + \frac{a(a+1)b(b+1)}{c(c+1)}\frac{z^2}{2!}+\cdots$
 Now, this series has a radius of convergence of
 1~\citep{abramowitz1965}; but the function is defined over the whole
 complex plane by analytic continuation~\citep{buhring1987}.  The
-\pkg{hypergeo} package~\citep{hankin2006} evaluates ${}_2F_1(a,b;c;z)$
+\pkg{hypergeo} package~\citep{hankin2015} evaluates ${}_2F_1(a,b;c;z)$
 for different values of $z$ by applying a sequence of transformations
 to reduce $\left|z\right|$ to its minimum value; however, this process
 is ineffective for $z=\frac{1}{2}\pm i\sqrt{3}/2$, these points
@@ -275,7 +275,7 @@ udash <- function(x){r * pi * (0+2i) * exp(pi * 2i * x)}
 
 We can compare this value with that obtained by a more sophisticated
 [and computationally expensive] method, that of
-Gosper~\citep{hankin2006}:
+Gosper~\citep{hankin2015}:
 
 <<>>=
 (val_gosper <- hypergeo_gosper(1/2, 1/3, 1/5, z0))
