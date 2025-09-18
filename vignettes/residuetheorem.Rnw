@@ -31,9 +31,12 @@
 %% an abstract and keywords
 
 \Abstract{Here I use the {\tt myintegrate()} function of the
-\pkg{elliptic} package to illustrate three classical theorems from
-analysis: Cauchy's integral theorem, the residue theorem, and Cauchy's
-integral formula.}
+  \pkg{elliptic} package to illustrate three classical theorems from
+  analysis: Cauchy's integral theorem, the residue theorem, and
+  Cauchy's integral formula.  In all cases, numerical values agree
+  with analytical results to within numerical precision.  Some further
+  work is suggested.
+}
 
 \Keywords{Residue theorem, Cauchy formula, Cauchy's integral formula,
   contour integration, complex integration, Cauchy's theorem}
