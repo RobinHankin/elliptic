@@ -62,7 +62,7 @@
   Robin K. S. Hankin\\
   University of Stirling\\
   Scotland\\
-  E-mail: \email{hankin.robin@gmail.com}
+  email: \email{hankin.robin@gmail.com}
 }
 
 
