@@ -309,18 +309,25 @@ bound.
 
 It's probably worth pointing out that minus operator, being
 nonassociative [that is, $a-(b-c)\neq (a-b)-c$] requires extra
-bracketing:
+bracketing.  Suppose we wish to consider $z-(1.7-3i)$:
 
 <div class="col2"><p>
 ```{r, eval=FALSE, echo=TRUE, asis=TRUE}      
-1: z-1.7+3i
-2: z - 1.7+3i
-3: z - (1.7-3i)
+1: z-1.7+3i         ❌
+2: z - 1.7+3i       ❌
+3: z - 1.7 + 3i     ✅
+4: z - (1.7-3i)     ❌
+5  z - (1.7 - 3i)   ✅
 ```
 </p><div class="col-break"></div><br>
-All three versions are algebraically identical.  Version `2` is
+
+All four versions are algebraically identical.  Version `2` is
 *definitely wrong* as it is parsed visually as `z - (1.7+3i)`.
+Version `3` does not treat `1.7+3i` as a unit.  Brackets are needed
+here IMO and version 4 is the best, as it isolates the complex number.
+Version 5 is defective in that, visually, the two minus signs have
+equal visual weight, yet the second should be more tightly bound than
+the first.  I find the spacing to be contradicting the algebraic
+precedence indicated by the parentheses.
 <br><br></p></div>
-
-
 
