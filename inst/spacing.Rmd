@@ -331,3 +331,50 @@ the first.  I find the spacing to be contradicting the algebraic
 precedence indicated by the parentheses.
 <br><br></p></div>
 
+Square bracket extraction, as in `M[i,j]` or `M[i,]`, poses its own
+problems.  Firstly we observe that single-index extraction is a
+non-issue: ``M[i]`` requires no whitespace.
+
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
+1: M[i,j]    ✅
+2: M[i, j]   ✅
+```
+</p><div class="col-break"></div><br>
+My preference would be dependent on context.  If I am considering
+`i,j` as a unit, then version `1` is the best.  If, on the other hand
+I am considering indexing in terms of "extract row `i`\dots and then,
+as a second restriction, consider  column `j`", I would prefer option
+`2`.
+<br><br></p></div>
+
+One feature of array extraction is that we may omit an entry to
+indicate "choose everything:
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
+1: M[i,]    ✅
+2: M[i, ]   ✅
+```
+</p><div class="col-break"></div><br>
+Version 2 would be preferred if one has a rule "always put a space
+after a comma", but I really don't like this.  The closing square
+bracket's being isolated bugs me.  The issue is that one has to
+somehow convey visually that the second argument is missing.  Version
+`1` indicates this by a null, and version `2` by a space.
+<br><br></p></div>
+
+<div class="col2"><p>
+```{r, eval=FALSE, echo=TRUE, asis=TRUE}
+1: M[,i]    ✅
+2: M[, i]   ✅
+```
+</p><div class="col-break"></div><br>
+Version 2 would be preferred if one has a rule "always put a space
+after a comma", but I really don't like this.  The closing square
+bracket's being isolated bugs me.  The issue is that one has to
+somehow convey visually that the second argument is missing.  Version
+`1` indicates this by a null, and version `2` by a space.
+<br><br></p></div>
+
