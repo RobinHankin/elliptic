@@ -42,7 +42,7 @@ theta.n(u, m, method = "16.36.7", ...)
 \details{
   I reproduce the relevant sections of AMS-55 here, for convenience:
 
-  \tabular{ll}{\cr
+  \tabular{ll}{
 16.36.6a\tab\eqn{\displaystyle\vartheta_s(u) = \frac{2K\vartheta_1(v)}{\vartheta'_{1_{\vphantom{j_j}}}(0)}}{see PDF}\cr
 16.36.6b\tab\eqn{\displaystyle\vartheta_c(u) = \frac{\vartheta_2(v)  }{\vartheta _{2_{\vphantom{j_j}}}(0)}}{see PDF}\cr
 16.36.7a\tab\eqn{\displaystyle\vartheta_d(u) = \frac{\vartheta_3(v)  }{\vartheta _{3_{\vphantom{j_j}}}(0)}}{see PDF}\cr
