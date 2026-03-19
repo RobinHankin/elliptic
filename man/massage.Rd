@@ -14,8 +14,8 @@ massage(z, tol = 1e-10)
 \author{Robin K. S. Hankin}
 \examples{
 massage(1+1i)
-massage(1+1e-11i)
+massage(1 + 1e-11i)
 
-massage(c(1,1+1e-11i,1+10i))
+massage(c(1, 1+1e-11i, 1+10i))
 }
 \keyword{math}
