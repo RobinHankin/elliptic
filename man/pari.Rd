@@ -10,7 +10,7 @@
 Wrappers for the three elliptic functions of PARI
 }
 \usage{
-P.pari(z,Omega,pari.fun="ellwp",numerical=TRUE)
+P.pari(z, Omega,pari.fun="ellwp", numerical=TRUE)
 }
 \arguments{
   \item{z}{Complex argument}
@@ -43,10 +43,10 @@ vectorize any of the calls.
 }
 \examples{
 \dontrun{ #this in a dontrun environment because it requires pari/gp 
-z  <- seq(from=1,to=3+2i,len=34)
-p <- c(1,1i)
+z  <- seq(from=1, to=3+2i, len=34)
+p <- c(1, 1i)
 plot(abs(P.pari(z=z,Omega=p) - P(z=z,Omega=p)))
-plot(zeta(z=z,params=parameters(Omega=p))- P.pari(z=z,Omega=c(p),pari.fun="ellzeta"))
+plot(zeta(z=z,params=parameters(Omega=p)) - P.pari(z=z,Omega=c(p),pari.fun="ellzeta"))
 
 }
 }
