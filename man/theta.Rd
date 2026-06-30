@@ -81,7 +81,7 @@ H1(u, m, ...)
 \examples{
 
 m <- 0.5
-derivative <- function(small){(theta1(small,m=m)-theta1(0,m=m))/small}
+derivative <- function(small){(theta1(small,m=m) - theta1(0,m=m))/small}
 right.hand.side1 <- theta2(0,m=m)*theta3(0,m=m)*theta4(0,m=m)
 right.hand.side2 <- theta1.dash.zero(m)
 

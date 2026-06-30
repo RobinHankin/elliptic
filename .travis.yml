@@ -1,8 +1,0 @@
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
-before_install:
-    - tlmgr install bbm
-    - tlmgr install collection-fontsrecommended
-language: R
-cache: packages
-r_build_args: '--resave-data --compact-vignettes="gs+qpdf"'
